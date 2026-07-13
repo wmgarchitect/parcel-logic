@@ -1,0 +1,10 @@
+label,footprint_m2,coverage,floors,floor_height_m,height_m,gfa_m2,far,taks_ok,kaks_ok,hmaks_ok,compliant
+coverage 0.10,781.33,0.1000,39,3.2,124.80,30471.91,3.9000,True,True,False,False
+coverage 0.15,1172.00,0.1500,26,3.2,83.20,30471.91,3.9000,True,True,False,False
+coverage 0.20,1562.66,0.2000,19,3.2,60.80,29690.58,3.8000,True,True,True,True
+coverage 0.25,1953.33,0.2500,16,3.2,51.20,31253.24,4.0000,True,True,True,True
+coverage 0.30,2343.99,0.3000,13,3.2,41.60,30471.91,3.9000,True,True,True,True
+coverage 0.35,2734.66,0.3500,11,3.2,35.20,30081.24,3.8500,True,True,True,True
+coverage 0.40,3125.32,0.4000,9,3.2,28.80,28127.92,3.6000,True,True,True,True
+coverage 0.45,3515.99,0.4500,8,3.2,25.60,28127.92,3.6000,True,True,True,True
+coverage 0.50,3906.66,0.5000,8,3.2,25.60,31253.24,4.0000,True,True,True,True
