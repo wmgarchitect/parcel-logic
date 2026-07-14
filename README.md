@@ -36,8 +36,10 @@ print(report)        # per-rule PASS/FAIL with real numbers
 
 ## What's here
 
-- **`zoning.py`** — the module. `ZoningEnvelope` (parcel + rules), `Massing` (a candidate building), `check()` (TAKS/KAKS/Hmaks compliance), `massing_from_coverage()` and `sweep_coverage()` (the fat-slab ↔ slim-tower spectrum), `variants_to_csv()` (metrics export). Pure Python 3, standard library only.
-- **`test_zoning.py`** — 16 tests pinned to the verified site numbers (appraisal report + official plan documents) and the built reality.
+- **`zoning.py`** — the module. `ZoningEnvelope` (parcel + rules), `Massing` (a candidate building), `check()` (TAKS/KAKS/Hmaks compliance), `massing_from_coverage()` and `sweep_coverage()` (the fat-slab ↔ slim-tower spectrum), `variants_to_csv()` (metrics export), and `DaylightRule` / `check_spacing()` — spacing between facing blocks checked at two levels: the legal floor (Planlı Alanlar İmar Yönetmeliği side distances, growing with floor count) and the lab's stricter daylight intent (obstruction-angle rule). Pure Python 3, standard library only.
+- **`test_zoning.py`** — 25 tests pinned to the verified site numbers (appraisal report + official plan documents), the built reality, and the regulation's spacing values.
+
+The two-level spacing rule is the project's argument in code: twin 25-floor towers 30 m apart are perfectly legal (the yönetmelik asks 27 m) and still fail the daylight intent (the 45° rule asks 80 m). Legality and light are different standards, and the module reports both.
 
 Run the demo and the tests:
 

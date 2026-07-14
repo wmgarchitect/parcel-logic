@@ -34,7 +34,7 @@ import importlib
 import zoning
 importlib.reload(zoning)  # pick up module edits without restarting Rhino
 
-from zoning import ZoningEnvelope, massing_from_coverage, check
+from zoning import DAYLIGHT, ZoningEnvelope, massing_from_coverage, check
 
 env = ZoningEnvelope(parcel_area=float(parcel_area), kaks=float(kaks),
                      taks=float(taks), hmaks=float(hmaks),
@@ -50,4 +50,13 @@ height = m.height
 gfa = m.gfa
 scale_f = math.sqrt(m.footprint / float(setback_area))
 compliant = r.ok
-report = str(r)
+
+# Session 5 readout: what this massing demands as spacing, if built
+# as twin blocks of the same floor count (the built-reality pattern).
+legal_gap = DAYLIGHT.legal_spacing(m.floors, m.floors)
+intent_gap = DAYLIGHT.intent_spacing(m.height)
+report = (str(r)
+          + "\n  daylight spacing, if twin blocks of {} fl:".format(m.floors)
+          + "\n    legal  >= {:,.1f} m   (yonetmelik)".format(legal_gap)
+          + "\n    intent >= {:,.1f} m   ({:.0f} deg rule)".format(
+              intent_gap, DAYLIGHT.obstruction_angle_deg))

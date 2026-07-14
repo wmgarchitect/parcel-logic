@@ -6,8 +6,9 @@ Run:  python3 test_zoning.py   (or pytest)
 import math
 import unittest
 
-from zoning import (SITE, Massing, ZoningEnvelope, check,
-                    massing_from_coverage, sweep_coverage, variants_to_csv)
+from zoning import (DAYLIGHT, SITE, DaylightRule, Massing, ZoningEnvelope,
+                    check, check_spacing, massing_from_coverage,
+                    sweep_coverage, variants_to_csv)
 
 
 class TestEnvelope(unittest.TestCase):
@@ -107,6 +108,67 @@ class TestVariantGeneration(unittest.TestCase):
             massing_from_coverage(SITE, 0.0, 3.2)
         with self.assertRaises(ValueError):
             SITE.max_floors(0)
+
+
+class TestDaylightRule(unittest.TestCase):
+    """Session 5: spacing between facing blocks, legal + intent levels."""
+
+    def test_side_distance_regulation_values(self):
+        # Planli Alanlar Imar Yonetmeligi: 3.00 m up to 4 floors,
+        # +0.50 m for each floor above.
+        self.assertAlmostEqual(DAYLIGHT.side_distance(1), 3.0)
+        self.assertAlmostEqual(DAYLIGHT.side_distance(4), 3.0)
+        self.assertAlmostEqual(DAYLIGHT.side_distance(5), 3.5)
+        self.assertAlmostEqual(DAYLIGHT.side_distance(25), 13.5)  # 3 + 0.5*21
+
+    def test_legal_spacing_twin_towers(self):
+        # Two 25-floor blocks on one parcel: 13.5 + 13.5 = 27 m
+        self.assertAlmostEqual(DAYLIGHT.legal_spacing(25, 25), 27.0)
+
+    def test_intent_spacing_45deg(self):
+        # 45 degrees: spacing >= shading height
+        self.assertAlmostEqual(DAYLIGHT.intent_spacing(80.0), 80.0, places=6)
+
+    def test_intent_spacing_steeper_angle_is_laxer(self):
+        rule60 = DaylightRule(obstruction_angle_deg=60.0)
+        self.assertAlmostEqual(rule60.intent_spacing(80.0), 80.0 / math.tan(math.radians(60)), places=6)
+        self.assertLess(rule60.intent_spacing(80.0), DAYLIGHT.intent_spacing(80.0))
+
+    def test_built_reality_gap_fails_intent_passes_legal(self):
+        # Twin 25-floor towers with a 30 m gap: legal (27 m) OK,
+        # intent at 45 degrees (80 m) violated. The note's argument in numbers.
+        tower = Massing(625.0, 25, 3.2, label="tower")
+        r = check_spacing(tower, tower, available=30.0)
+        by_rule = {c.rule: c.ok for c in r.checks}
+        self.assertTrue(by_rule["Spacing-legal"])
+        self.assertFalse(by_rule["Spacing-intent"])
+        self.assertFalse(r.ok)
+
+    def test_generous_gap_passes_both(self):
+        tower = Massing(625.0, 25, 3.2)
+        r = check_spacing(tower, tower, available=80.0)
+        self.assertTrue(r.ok, str(r))
+
+    def test_below_legal_fails_both(self):
+        tower = Massing(625.0, 25, 3.2)
+        r = check_spacing(tower, tower, available=20.0)
+        self.assertFalse(any(c.ok for c in r.checks))
+
+    def test_asymmetric_blocks_use_taller_as_shading(self):
+        tall = Massing(625.0, 25, 3.2)    # 80 m
+        low = Massing(3906.0, 8, 4.0)     # 32 m
+        r = check_spacing(tall, low, available=50.0)
+        intent = next(c for c in r.checks if c.rule == "Spacing-intent")
+        self.assertAlmostEqual(intent.limit, 80.0)  # taller block shades
+        # legal: 13.5 + (3 + 0.5*4) = 18.5
+        legal = next(c for c in r.checks if c.rule == "Spacing-legal")
+        self.assertAlmostEqual(legal.limit, 18.5)
+
+    def test_bad_angle_raises(self):
+        with self.assertRaises(ValueError):
+            DaylightRule(obstruction_angle_deg=0).intent_spacing(80)
+        with self.assertRaises(ValueError):
+            DaylightRule(obstruction_angle_deg=90).intent_spacing(80)
 
 
 if __name__ == "__main__":

@@ -35,7 +35,7 @@ import math
 from dataclasses import dataclass, field
 from typing import Iterable, List, Optional
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = [
     "ZoningEnvelope",
     "Massing",
@@ -45,6 +45,10 @@ __all__ = [
     "massing_from_coverage",
     "sweep_coverage",
     "variants_to_csv",
+    "DaylightRule",
+    "SpacingReport",
+    "check_spacing",
+    "DAYLIGHT",
     "SITE",
 ]
 
@@ -143,16 +147,18 @@ class Massing:
 class Check:
     """One rule checked against one massing."""
 
-    rule: str        # "TAKS", "KAKS", "Hmaks"
+    rule: str        # "TAKS", "KAKS", "Hmaks", "Spacing-legal", ...
     value: float     # what the massing does
-    limit: float     # what the plan allows
+    limit: float     # what the rule demands
     ok: bool
     unit: str = "m2"
+    relation: str = "<="  # "<=" ceiling rules, ">=" floor rules (spacing)
 
     def __str__(self) -> str:
         mark = "PASS" if self.ok else "FAIL"
-        return (f"{self.rule:<6} {mark}  "
-                f"{self.value:,.2f} {self.unit} of {self.limit:,.2f} {self.unit} allowed")
+        word = "required" if self.relation == ">=" else "allowed"
+        return (f"{self.rule:<14} {mark}  "
+                f"{self.value:,.2f} {self.unit} of {self.limit:,.2f} {self.unit} {word}")
 
 
 @dataclass(frozen=True)
@@ -252,6 +258,101 @@ def variants_to_csv(reports: Iterable[ComplianceReport],
         with open(path, "w", encoding="utf-8") as f:
             f.write(text)
     return text
+
+
+# ---------------------------------------------------------------------------
+# Daylight: spacing between facing blocks (Session 5)
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class DaylightRule:
+    """Two-level spacing rule between facing residential blocks.
+
+    LEGAL level (Planli Alanlar Imar Yonetmeligi): the side-garden
+    distance is side_min for buildings up to floor_threshold floors,
+    plus side_per_floor for every floor above it. Blocks on the same
+    parcel must stand at least the SUM of their two side distances
+    apart. For twin 25-floor towers: (3 + 0.5*21) * 2 = 27 m.
+
+    INTENT level (the lab's committed rule, stricter than code):
+    daylight to the units. From the base of one block, the top of the
+    facing block must stay below obstruction_angle_deg above the
+    horizon: spacing >= shading_height / tan(angle). At the default
+    45 degrees, an 80 m tower demands 80 m of clear space - which is
+    exactly why protecting daylight costs floor area. The angle is a
+    design commitment, not law; sweep it to see the cost curve.
+    """
+
+    side_min: float = 3.0
+    side_per_floor: float = 0.5
+    floor_threshold: int = 4
+    obstruction_angle_deg: float = 45.0
+
+    def side_distance(self, floors: int) -> float:
+        """Legal side-garden distance for a block of `floors` floors."""
+        extra = max(0, floors - self.floor_threshold)
+        return self.side_min + self.side_per_floor * extra
+
+    def legal_spacing(self, floors_a: int, floors_b: int) -> float:
+        """Legal minimum distance between two blocks on one parcel."""
+        return self.side_distance(floors_a) + self.side_distance(floors_b)
+
+    def intent_spacing(self, shading_height: float) -> float:
+        """Intent minimum distance so the facing block keeps its light."""
+        if shading_height < 0:
+            raise ValueError("shading_height must be >= 0")
+        angle = math.radians(self.obstruction_angle_deg)
+        if not 0 < angle < math.pi / 2:
+            raise ValueError("obstruction_angle_deg must be in (0, 90)")
+        return shading_height / math.tan(angle)
+
+
+DAYLIGHT = DaylightRule()
+
+
+@dataclass(frozen=True)
+class SpacingReport:
+    """Spacing between two facing blocks checked at both levels."""
+
+    massing_a: Massing
+    massing_b: Massing
+    available: float
+    rule: DaylightRule
+    checks: List[Check] = field(default_factory=list)
+
+    @property
+    def ok(self) -> bool:
+        return all(c.ok for c in self.checks)
+
+    def __str__(self) -> str:
+        a, b = self.massing_a, self.massing_b
+        head = (f"spacing {a.label or 'A'} <-> {b.label or 'B'}: "
+                f"{self.available:,.1f} m available")
+        lines = [head] + ["  " + str(c) for c in self.checks]
+        lines.append("  => " + ("DAYLIGHT OK" if self.ok else "DAYLIGHT VIOLATED"))
+        return "\n".join(lines)
+
+
+def check_spacing(massing_a: Massing, massing_b: Massing,
+                  available: float,
+                  rule: DaylightRule = DAYLIGHT) -> SpacingReport:
+    """Check the gap between two facing blocks: legal floor, then intent.
+
+    `available` is the clear distance between the facing facades.
+    The intent check uses the taller block as the shading mass (worst
+    case for the units at the base of the other).
+    """
+    legal = rule.legal_spacing(massing_a.floors, massing_b.floors)
+    shading = max(massing_a.height, massing_b.height)
+    intent = rule.intent_spacing(shading)
+    checks = [
+        Check("Spacing-legal", available, legal,
+              available + TOLERANCE >= legal, unit="m", relation=">="),
+        Check("Spacing-intent", available, intent,
+              available + TOLERANCE >= intent, unit="m", relation=">="),
+    ]
+    return SpacingReport(massing_a=massing_a, massing_b=massing_b,
+                         available=available, rule=rule, checks=checks)
 
 
 # ---------------------------------------------------------------------------
