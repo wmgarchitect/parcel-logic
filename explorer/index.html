@@ -61,6 +61,12 @@
           background: rgba(255,255,255,.04); border: 1px solid var(--line);
           padding: 3px 9px; border-radius: 6px; }
   .chip b { color: var(--cream); font-weight: 600; }
+  .chip .sell { color: var(--amber); }
+  .chip .sell b { color: var(--amber); }
+  .asp { font-family: Consolas, monospace; font-size: 12px; margin-left: 10px;
+         padding: 2px 8px; border-radius: 10px; }
+  .asp-yes { color: var(--green); border: 1px solid var(--green); }
+  .asp-no  { color: var(--dim); border: 1px dashed var(--line); }
 
   .report { margin: 12px 16px 16px; border-top: 1px solid var(--line); padding-top: 10px;
             font-family: Consolas, monospace; font-size: 12px; line-height: 1.75; }
@@ -88,9 +94,12 @@
   Every massing option the V01 grid can produce on parcel Merdivenköy 3412/3
   (Kadıköy, Istanbul), placed inside the real setback boundary and judged by
   <a href="https://github.com/wmgarchitect/parcel-logic">zoning.py</a> —
-  KAKS, TAKS, Hmaks, and the two-level daylight spacing rule. Gaps are measured
-  on the drawn geometry, not estimated. Candidates that cannot physically fit
-  the zone say so.
+  KAKS, TAKS, Hmaks, buildable plates (max 22 m depth, so every block is a
+  real residential slab), and daylight spacing at three levels: the legal
+  floor, the committed 60° intent, and the 45° aspiration reported on every
+  card. Gaps are measured on the drawn geometry. Sellable areas are estimated
+  with factors calibrated from this parcel's own 2018 valuation report.
+  Candidates that cannot physically fit the zone say so.
 </p>
 
 <div class="controls">
@@ -154,12 +163,15 @@ function reportHtml(txt) {
 function chips(v) {
   const c = [];
   c.push(`cov <b>${v.cov.toFixed(2)}</b>`);
-  c.push(`floor h <b>${v.fh.toFixed(1)} m</b>`);
   c.push(v.blocks === 2 ? "<b>twin</b> blocks" : "<b>single</b> block");
-  c.push(`<b>${v.floors}</b> fl`);
+  c.push(`<b>${v.floors}</b> fl @ ${v.fh.toFixed(1)}`);
   c.push(`H <b>${v.height.toFixed(1)} m</b>`);
-  c.push(`GFA <b>${Math.round(v.gfa).toLocaleString()}</b> m²`);
+  if (v.plate) c.push(`plate <b>${v.plate} m</b>`);
   if (v.gap !== null) c.push(`gap <b>${v.gap.toFixed(1)} m</b>`);
+  c.push(`emsal <b>${Math.round(v.gfa).toLocaleString()}</b> m²`);
+  const vc = V_CLASS(v.verdict);
+  if (vc !== "nofit")
+    c.push(`<span class="sell">sellable ≈ <b>${v.sellable.toLocaleString()}</b> m²</span>`);
   return c.map(x => `<span class="chip">${x}</span>`).join("");
 }
 
@@ -185,8 +197,12 @@ function render() {
       ? `<div class="noimg">NO GEOMETRY — DOES NOT FIT ZONE</div>`
       : `<img src="frames/v${String(v.id).padStart(3, "0")}.png" loading="lazy"
              alt="variant ${v.id}">`;
+    const asp = (v.aspiration === null || v.aspiration === undefined) ? "" :
+      (v.aspiration
+        ? `<span class="asp asp-yes" title="45 deg aspiration met">45° ✓</span>`
+        : `<span class="asp asp-no" title="45 deg aspiration not met">45° –</span>`);
     return `<div class="card">${img}
-      <div class="head"><span class="vid">v${String(v.id).padStart(3, "0")}</span>
+      <div class="head"><span class="vid">v${String(v.id).padStart(3, "0")}</span>${asp}
         <span class="badge ${bcls}">${btxt}</span></div>
       <div class="chips">${chips(v)}</div>
       <div class="report">${reportHtml(v.report)}</div>

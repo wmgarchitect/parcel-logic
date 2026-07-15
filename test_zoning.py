@@ -269,5 +269,20 @@ class TestPodiumMassing(unittest.TestCase):
         self.assertAlmostEqual(intent.limit, 57.0 / math.tan(math.radians(60)), places=4)
 
 
+class TestYieldModel(unittest.TestCase):
+    """Session 10: calibrated against the valuation report's own table."""
+
+    def test_reproduces_report_at_kaks_ceiling(self):
+        from zoning import YIELD
+        emsal = SITE.max_gfa  # 31,253.24
+        self.assertAlmostEqual(YIELD.program(emsal), 38_973.34, delta=40)
+        self.assertAlmostEqual(YIELD.sellable(emsal), 48_716.68, delta=40)
+        self.assertAlmostEqual(YIELD.construction(emsal), 78_544.85, delta=40)
+
+    def test_scales_linearly(self):
+        from zoning import YIELD
+        self.assertAlmostEqual(YIELD.sellable(10_000), 15_588.0, places=1)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

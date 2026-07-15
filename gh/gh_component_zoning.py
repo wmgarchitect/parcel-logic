@@ -34,7 +34,7 @@ import importlib
 import zoning
 importlib.reload(zoning)  # pick up module edits without restarting Rhino
 
-from zoning import DAYLIGHT, ZoningEnvelope, massing_from_coverage, check
+from zoning import DAYLIGHT, YIELD, ZoningEnvelope, massing_from_coverage, check
 
 env = ZoningEnvelope(parcel_area=float(parcel_area), kaks=float(kaks),
                      taks=float(taks), hmaks=float(hmaks),
@@ -51,12 +51,17 @@ gfa = m.gfa
 scale_f = math.sqrt(m.footprint / float(setback_area))
 compliant = r.ok
 
-# Session 5 readout: what this massing demands as spacing, if built
-# as twin blocks of the same floor count (the built-reality pattern).
+# Session 5+9 readout: spacing demands (twin-block reading), the
+# aspiration line, and the yield estimate in investor language.
 legal_gap = DAYLIGHT.legal_spacing(m.floors, m.floors)
 intent_gap = DAYLIGHT.intent_spacing(m.height)
+aspir_gap = DAYLIGHT.aspiration_spacing(m.height)
 report = (str(r)
           + "\n  daylight spacing, if twin blocks of {} fl:".format(m.floors)
-          + "\n    legal  >= {:,.1f} m   (yonetmelik)".format(legal_gap)
-          + "\n    intent >= {:,.1f} m   ({:.0f} deg rule)".format(
-              intent_gap, DAYLIGHT.obstruction_angle_deg))
+          + "\n    legal      >= {:,.1f} m   (yonetmelik)".format(legal_gap)
+          + "\n    intent     >= {:,.1f} m   ({:.0f} deg, binding)".format(
+              intent_gap, DAYLIGHT.intent_angle_deg)
+          + "\n    aspiration >= {:,.1f} m   ({:.0f} deg, reported)".format(
+              aspir_gap, DAYLIGHT.aspiration_angle_deg)
+          + "\n  yield estimate: {:,.0f} m2 emsal -> ~{:,.0f} m2 sellable".format(
+              m.gfa, YIELD.sellable(m.gfa)))

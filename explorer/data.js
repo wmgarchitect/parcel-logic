@@ -10,7 +10,10 @@ const VARIANTS = [
   "footprint": 781.0,
   "gap": null,
   "verdict": "NOT LEGAL",
-  "report": "v000 cov 0.10 fh 2.8 x1\nv000: 781 m2 x 39 fl @ 2.8 m -> GFA 30,472 m2, H 109.2 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  109.20 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 28 x 28 m, in-polygon, zone axis\n  => NOT LEGAL"
+  "aspiration": null,
+  "plate": "36x22",
+  "sellable": 47500,
+  "report": "v000 cov 0.10 fh 2.8 x1\nv000: 781 m2 x 39 fl @ 2.8 m -> GFA 30,472 m2, H 109.2 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  109.20 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 36 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 36 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 1,
@@ -23,7 +26,10 @@ const VARIANTS = [
   "footprint": 781.0,
   "gap": 71.7,
   "verdict": "NOT LEGAL",
-  "report": "v001 cov 0.10 fh 2.8 x2\nv001: 781 m2 x 39 fl @ 2.8 m -> GFA 30,472 m2, H 109.2 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  109.20 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v001 cov 0.10 fh 2.8 x2 block <-> v001 cov 0.10 fh 2.8 x2 block: 71.7 m available\n  Spacing-legal  PASS  71.73 m of 41.00 m required\n  Spacing-intent FAIL  71.73 m of 109.20 m required\n  => DAYLIGHT VIOLATED\n  gap: 71.7 m real (drawn) / 74.1 m CSV estimate\n  placement: twin blocks 20 x 20 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "aspiration": false,
+  "plate": "20x20",
+  "sellable": 47500,
+  "report": "v001 cov 0.10 fh 2.8 x2\nv001: 781 m2 x 39 fl @ 2.8 m -> GFA 30,472 m2, H 109.2 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  109.20 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v001 cov 0.10 fh 2.8 x2 block <-> v001 cov 0.10 fh 2.8 x2 block: 71.7 m available\n  Spacing-legal  PASS  71.73 m of 41.00 m required\n  Spacing-intent PASS  71.73 m of 63.05 m required\n  Spacing-aspir. NOT MET  71.73 m of 109.20 m (45deg, reported only)\n  => DAYLIGHT OK\n  gap: 71.7 m real (drawn) / 74.1 m CSV estimate\n  placement: twin blocks 20 x 20 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 20 x 20 m, depth 19.8 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 2,
@@ -36,7 +42,10 @@ const VARIANTS = [
   "footprint": 781.0,
   "gap": null,
   "verdict": "NOT LEGAL",
-  "report": "v002 cov 0.10 fh 3.2 x1\nv002: 781 m2 x 39 fl @ 3.2 m -> GFA 30,472 m2, H 124.8 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  124.80 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 28 x 28 m, in-polygon, zone axis\n  => NOT LEGAL"
+  "aspiration": null,
+  "plate": "36x22",
+  "sellable": 47500,
+  "report": "v002 cov 0.10 fh 3.2 x1\nv002: 781 m2 x 39 fl @ 3.2 m -> GFA 30,472 m2, H 124.8 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  124.80 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 36 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 36 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 3,
@@ -49,7 +58,10 @@ const VARIANTS = [
   "footprint": 781.0,
   "gap": 71.7,
   "verdict": "NOT LEGAL",
-  "report": "v003 cov 0.10 fh 3.2 x2\nv003: 781 m2 x 39 fl @ 3.2 m -> GFA 30,472 m2, H 124.8 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  124.80 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v003 cov 0.10 fh 3.2 x2 block <-> v003 cov 0.10 fh 3.2 x2 block: 71.7 m available\n  Spacing-legal  PASS  71.73 m of 41.00 m required\n  Spacing-intent FAIL  71.73 m of 124.80 m required\n  => DAYLIGHT VIOLATED\n  gap: 71.7 m real (drawn) / 74.1 m CSV estimate\n  placement: twin blocks 20 x 20 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "aspiration": false,
+  "plate": "20x20",
+  "sellable": 47500,
+  "report": "v003 cov 0.10 fh 3.2 x2\nv003: 781 m2 x 39 fl @ 3.2 m -> GFA 30,472 m2, H 124.8 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  124.80 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v003 cov 0.10 fh 3.2 x2 block <-> v003 cov 0.10 fh 3.2 x2 block: 71.7 m available\n  Spacing-legal  PASS  71.73 m of 41.00 m required\n  Spacing-intent FAIL  71.73 m of 72.05 m required\n  Spacing-aspir. NOT MET  71.73 m of 124.80 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 71.7 m real (drawn) / 74.1 m CSV estimate\n  placement: twin blocks 20 x 20 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 20 x 20 m, depth 19.8 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 4,
@@ -62,7 +74,10 @@ const VARIANTS = [
   "footprint": 781.0,
   "gap": null,
   "verdict": "NOT LEGAL",
-  "report": "v004 cov 0.10 fh 3.6 x1\nv004: 781 m2 x 39 fl @ 3.6 m -> GFA 30,472 m2, H 140.4 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  140.40 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 28 x 28 m, in-polygon, zone axis\n  => NOT LEGAL"
+  "aspiration": null,
+  "plate": "36x22",
+  "sellable": 47500,
+  "report": "v004 cov 0.10 fh 3.6 x1\nv004: 781 m2 x 39 fl @ 3.6 m -> GFA 30,472 m2, H 140.4 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  140.40 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 36 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 36 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 5,
@@ -75,7 +90,10 @@ const VARIANTS = [
   "footprint": 781.0,
   "gap": 71.7,
   "verdict": "NOT LEGAL",
-  "report": "v005 cov 0.10 fh 3.6 x2\nv005: 781 m2 x 39 fl @ 3.6 m -> GFA 30,472 m2, H 140.4 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  140.40 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v005 cov 0.10 fh 3.6 x2 block <-> v005 cov 0.10 fh 3.6 x2 block: 71.7 m available\n  Spacing-legal  PASS  71.73 m of 41.00 m required\n  Spacing-intent FAIL  71.73 m of 140.40 m required\n  => DAYLIGHT VIOLATED\n  gap: 71.7 m real (drawn) / 74.1 m CSV estimate\n  placement: twin blocks 20 x 20 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "aspiration": false,
+  "plate": "20x20",
+  "sellable": 47500,
+  "report": "v005 cov 0.10 fh 3.6 x2\nv005: 781 m2 x 39 fl @ 3.6 m -> GFA 30,472 m2, H 140.4 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  140.40 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v005 cov 0.10 fh 3.6 x2 block <-> v005 cov 0.10 fh 3.6 x2 block: 71.7 m available\n  Spacing-legal  PASS  71.73 m of 41.00 m required\n  Spacing-intent FAIL  71.73 m of 81.06 m required\n  Spacing-aspir. NOT MET  71.73 m of 140.40 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 71.7 m real (drawn) / 74.1 m CSV estimate\n  placement: twin blocks 20 x 20 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 20 x 20 m, depth 19.8 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 6,
@@ -88,7 +106,10 @@ const VARIANTS = [
   "footprint": 781.0,
   "gap": null,
   "verdict": "NOT LEGAL",
-  "report": "v006 cov 0.10 fh 4.0 x1\nv006: 781 m2 x 39 fl @ 4.0 m -> GFA 30,472 m2, H 156.0 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  156.00 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 28 x 28 m, in-polygon, zone axis\n  => NOT LEGAL"
+  "aspiration": null,
+  "plate": "36x22",
+  "sellable": 47500,
+  "report": "v006 cov 0.10 fh 4.0 x1\nv006: 781 m2 x 39 fl @ 4.0 m -> GFA 30,472 m2, H 156.0 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  156.00 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 36 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 36 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 7,
@@ -101,7 +122,10 @@ const VARIANTS = [
   "footprint": 781.0,
   "gap": 71.7,
   "verdict": "NOT LEGAL",
-  "report": "v007 cov 0.10 fh 4.0 x2\nv007: 781 m2 x 39 fl @ 4.0 m -> GFA 30,472 m2, H 156.0 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  156.00 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v007 cov 0.10 fh 4.0 x2 block <-> v007 cov 0.10 fh 4.0 x2 block: 71.7 m available\n  Spacing-legal  PASS  71.73 m of 41.00 m required\n  Spacing-intent FAIL  71.73 m of 156.00 m required\n  => DAYLIGHT VIOLATED\n  gap: 71.7 m real (drawn) / 74.1 m CSV estimate\n  placement: twin blocks 20 x 20 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "aspiration": false,
+  "plate": "20x20",
+  "sellable": 47500,
+  "report": "v007 cov 0.10 fh 4.0 x2\nv007: 781 m2 x 39 fl @ 4.0 m -> GFA 30,472 m2, H 156.0 m\n  TAKS           PASS  781.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  156.00 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v007 cov 0.10 fh 4.0 x2 block <-> v007 cov 0.10 fh 4.0 x2 block: 71.7 m available\n  Spacing-legal  PASS  71.73 m of 41.00 m required\n  Spacing-intent FAIL  71.73 m of 90.07 m required\n  Spacing-aspir. NOT MET  71.73 m of 156.00 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 71.7 m real (drawn) / 74.1 m CSV estimate\n  placement: twin blocks 20 x 20 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 20 x 20 m, depth 19.8 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 8,
@@ -114,7 +138,10 @@ const VARIANTS = [
   "footprint": 1172.0,
   "gap": null,
   "verdict": "PROTECTS DAYLIGHT",
-  "report": "v008 cov 0.15 fh 2.8 x1\nv008: 1,172 m2 x 26 fl @ 2.8 m -> GFA 30,472 m2, H 72.8 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  72.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 34 x 34 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "aspiration": null,
+  "plate": "53x22",
+  "sellable": 47500,
+  "report": "v008 cov 0.15 fh 2.8 x1\nv008: 1,172 m2 x 26 fl @ 2.8 m -> GFA 30,472 m2, H 72.8 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  72.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 53 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 53 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT"
  },
  {
   "id": 9,
@@ -125,9 +152,12 @@ const VARIANTS = [
   "height": 72.8,
   "gfa": 30472.0,
   "footprint": 1172.0,
-  "gap": 62.3,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v009 cov 0.15 fh 2.8 x2\nv009: 1,172 m2 x 26 fl @ 2.8 m -> GFA 30,472 m2, H 72.8 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  72.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v009 cov 0.15 fh 2.8 x2 block <-> v009 cov 0.15 fh 2.8 x2 block: 62.3 m available\n  Spacing-legal  PASS  62.29 m of 28.00 m required\n  Spacing-intent FAIL  62.29 m of 72.80 m required\n  => DAYLIGHT VIOLATED\n  gap: 62.3 m real (drawn) / 65.2 m CSV estimate\n  placement: twin blocks 24 x 24 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": 57.4,
+  "verdict": "PROTECTS DAYLIGHT (real gap)",
+  "aspiration": false,
+  "plate": "27x22",
+  "sellable": 47500,
+  "report": "v009 cov 0.15 fh 2.8 x2\nv009: 1,172 m2 x 26 fl @ 2.8 m -> GFA 30,472 m2, H 72.8 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  72.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v009 cov 0.15 fh 2.8 x2 block <-> v009 cov 0.15 fh 2.8 x2 block: 57.4 m available\n  Spacing-legal  PASS  57.36 m of 28.00 m required\n  Spacing-intent PASS  57.36 m of 42.03 m required\n  Spacing-aspir. NOT MET  57.36 m of 72.80 m (45deg, reported only)\n  => DAYLIGHT OK\n  gap: 57.4 m real (drawn) / 65.2 m CSV estimate\n  placement: twin blocks 27 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 27 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT (real gap)"
  },
  {
   "id": 10,
@@ -140,7 +170,10 @@ const VARIANTS = [
   "footprint": 1172.0,
   "gap": null,
   "verdict": "NOT LEGAL",
-  "report": "v010 cov 0.15 fh 3.2 x1\nv010: 1,172 m2 x 26 fl @ 3.2 m -> GFA 30,472 m2, H 83.2 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  83.20 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 34 x 34 m, in-polygon, zone axis\n  => NOT LEGAL"
+  "aspiration": null,
+  "plate": "53x22",
+  "sellable": 47500,
+  "report": "v010 cov 0.15 fh 3.2 x1\nv010: 1,172 m2 x 26 fl @ 3.2 m -> GFA 30,472 m2, H 83.2 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  83.20 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 53 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 53 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 11,
@@ -151,9 +184,12 @@ const VARIANTS = [
   "height": 83.2,
   "gfa": 30472.0,
   "footprint": 1172.0,
-  "gap": 62.3,
+  "gap": 57.4,
   "verdict": "NOT LEGAL",
-  "report": "v011 cov 0.15 fh 3.2 x2\nv011: 1,172 m2 x 26 fl @ 3.2 m -> GFA 30,472 m2, H 83.2 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  83.20 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v011 cov 0.15 fh 3.2 x2 block <-> v011 cov 0.15 fh 3.2 x2 block: 62.3 m available\n  Spacing-legal  PASS  62.29 m of 28.00 m required\n  Spacing-intent FAIL  62.29 m of 83.20 m required\n  => DAYLIGHT VIOLATED\n  gap: 62.3 m real (drawn) / 65.2 m CSV estimate\n  placement: twin blocks 24 x 24 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "aspiration": false,
+  "plate": "27x22",
+  "sellable": 47500,
+  "report": "v011 cov 0.15 fh 3.2 x2\nv011: 1,172 m2 x 26 fl @ 3.2 m -> GFA 30,472 m2, H 83.2 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  83.20 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v011 cov 0.15 fh 3.2 x2 block <-> v011 cov 0.15 fh 3.2 x2 block: 57.4 m available\n  Spacing-legal  PASS  57.36 m of 28.00 m required\n  Spacing-intent PASS  57.36 m of 48.04 m required\n  Spacing-aspir. NOT MET  57.36 m of 83.20 m (45deg, reported only)\n  => DAYLIGHT OK\n  gap: 57.4 m real (drawn) / 65.2 m CSV estimate\n  placement: twin blocks 27 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 27 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 12,
@@ -166,7 +202,10 @@ const VARIANTS = [
   "footprint": 1172.0,
   "gap": null,
   "verdict": "NOT LEGAL",
-  "report": "v012 cov 0.15 fh 3.6 x1\nv012: 1,172 m2 x 26 fl @ 3.6 m -> GFA 30,472 m2, H 93.6 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  93.60 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 34 x 34 m, in-polygon, zone axis\n  => NOT LEGAL"
+  "aspiration": null,
+  "plate": "53x22",
+  "sellable": 47500,
+  "report": "v012 cov 0.15 fh 3.6 x1\nv012: 1,172 m2 x 26 fl @ 3.6 m -> GFA 30,472 m2, H 93.6 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  93.60 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 53 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 53 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 13,
@@ -177,9 +216,12 @@ const VARIANTS = [
   "height": 93.6,
   "gfa": 30472.0,
   "footprint": 1172.0,
-  "gap": 62.3,
+  "gap": 57.4,
   "verdict": "NOT LEGAL",
-  "report": "v013 cov 0.15 fh 3.6 x2\nv013: 1,172 m2 x 26 fl @ 3.6 m -> GFA 30,472 m2, H 93.6 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  93.60 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v013 cov 0.15 fh 3.6 x2 block <-> v013 cov 0.15 fh 3.6 x2 block: 62.3 m available\n  Spacing-legal  PASS  62.29 m of 28.00 m required\n  Spacing-intent FAIL  62.29 m of 93.60 m required\n  => DAYLIGHT VIOLATED\n  gap: 62.3 m real (drawn) / 65.2 m CSV estimate\n  placement: twin blocks 24 x 24 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "aspiration": false,
+  "plate": "27x22",
+  "sellable": 47500,
+  "report": "v013 cov 0.15 fh 3.6 x2\nv013: 1,172 m2 x 26 fl @ 3.6 m -> GFA 30,472 m2, H 93.6 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  93.60 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v013 cov 0.15 fh 3.6 x2 block <-> v013 cov 0.15 fh 3.6 x2 block: 57.4 m available\n  Spacing-legal  PASS  57.36 m of 28.00 m required\n  Spacing-intent PASS  57.36 m of 54.04 m required\n  Spacing-aspir. NOT MET  57.36 m of 93.60 m (45deg, reported only)\n  => DAYLIGHT OK\n  gap: 57.4 m real (drawn) / 65.2 m CSV estimate\n  placement: twin blocks 27 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 27 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 14,
@@ -192,7 +234,10 @@ const VARIANTS = [
   "footprint": 1172.0,
   "gap": null,
   "verdict": "NOT LEGAL",
-  "report": "v014 cov 0.15 fh 4.0 x1\nv014: 1,172 m2 x 26 fl @ 4.0 m -> GFA 30,472 m2, H 104.0 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  104.00 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 34 x 34 m, in-polygon, zone axis\n  => NOT LEGAL"
+  "aspiration": null,
+  "plate": "53x22",
+  "sellable": 47500,
+  "report": "v014 cov 0.15 fh 4.0 x1\nv014: 1,172 m2 x 26 fl @ 4.0 m -> GFA 30,472 m2, H 104.0 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  104.00 m of 80.00 m allowed\n  => NON-COMPLIANT\n  placement: single block 53 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 53 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 15,
@@ -203,9 +248,12 @@ const VARIANTS = [
   "height": 104.0,
   "gfa": 30472.0,
   "footprint": 1172.0,
-  "gap": 62.3,
+  "gap": 57.4,
   "verdict": "NOT LEGAL",
-  "report": "v015 cov 0.15 fh 4.0 x2\nv015: 1,172 m2 x 26 fl @ 4.0 m -> GFA 30,472 m2, H 104.0 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  104.00 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v015 cov 0.15 fh 4.0 x2 block <-> v015 cov 0.15 fh 4.0 x2 block: 62.3 m available\n  Spacing-legal  PASS  62.29 m of 28.00 m required\n  Spacing-intent FAIL  62.29 m of 104.00 m required\n  => DAYLIGHT VIOLATED\n  gap: 62.3 m real (drawn) / 65.2 m CSV estimate\n  placement: twin blocks 24 x 24 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "aspiration": false,
+  "plate": "27x22",
+  "sellable": 47500,
+  "report": "v015 cov 0.15 fh 4.0 x2\nv015: 1,172 m2 x 26 fl @ 4.0 m -> GFA 30,472 m2, H 104.0 m\n  TAKS           PASS  1,172.00 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          FAIL  104.00 m of 80.00 m allowed\n  => NON-COMPLIANT\nspacing v015 cov 0.15 fh 4.0 x2 block <-> v015 cov 0.15 fh 4.0 x2 block: 57.4 m available\n  Spacing-legal  PASS  57.36 m of 28.00 m required\n  Spacing-intent FAIL  57.36 m of 60.04 m required\n  Spacing-aspir. NOT MET  57.36 m of 104.00 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 57.4 m real (drawn) / 65.2 m CSV estimate\n  placement: twin blocks 27 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 27 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 16,
@@ -218,7 +266,10 @@ const VARIANTS = [
   "footprint": 1563.0,
   "gap": null,
   "verdict": "PROTECTS DAYLIGHT",
-  "report": "v016 cov 0.20 fh 2.8 x1\nv016: 1,563 m2 x 19 fl @ 2.8 m -> GFA 29,691 m2, H 53.2 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  53.20 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 40 x 40 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "aspiration": null,
+  "plate": "71x22",
+  "sellable": 46282,
+  "report": "v016 cov 0.20 fh 2.8 x1\nv016: 1,563 m2 x 19 fl @ 2.8 m -> GFA 29,691 m2, H 53.2 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  53.20 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 71 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 71 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT"
  },
  {
   "id": 17,
@@ -229,9 +280,12 @@ const VARIANTS = [
   "height": 53.2,
   "gfa": 29691.0,
   "footprint": 1563.0,
-  "gap": 52.5,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v017 cov 0.20 fh 2.8 x2\nv017: 1,563 m2 x 19 fl @ 2.8 m -> GFA 29,691 m2, H 53.2 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  53.20 m of 80.00 m allowed\n  => COMPLIANT\nspacing v017 cov 0.20 fh 2.8 x2 block <-> v017 cov 0.20 fh 2.8 x2 block: 52.5 m available\n  Spacing-legal  PASS  52.55 m of 21.00 m required\n  Spacing-intent FAIL  52.55 m of 53.20 m required\n  => DAYLIGHT VIOLATED\n  gap: 52.5 m real (drawn) / 57.7 m CSV estimate\n  placement: twin blocks 28 x 28 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": 39.7,
+  "verdict": "PROTECTS DAYLIGHT (real gap)",
+  "aspiration": false,
+  "plate": "36x22",
+  "sellable": 46282,
+  "report": "v017 cov 0.20 fh 2.8 x2\nv017: 1,563 m2 x 19 fl @ 2.8 m -> GFA 29,691 m2, H 53.2 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  53.20 m of 80.00 m allowed\n  => COMPLIANT\nspacing v017 cov 0.20 fh 2.8 x2 block <-> v017 cov 0.20 fh 2.8 x2 block: 39.7 m available\n  Spacing-legal  PASS  39.73 m of 21.00 m required\n  Spacing-intent PASS  39.73 m of 30.72 m required\n  Spacing-aspir. NOT MET  39.73 m of 53.20 m (45deg, reported only)\n  => DAYLIGHT OK\n  gap: 39.7 m real (drawn) / 57.7 m CSV estimate\n  placement: twin blocks 36 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 36 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT (real gap)"
  },
  {
   "id": 18,
@@ -244,7 +298,10 @@ const VARIANTS = [
   "footprint": 1563.0,
   "gap": null,
   "verdict": "PROTECTS DAYLIGHT",
-  "report": "v018 cov 0.20 fh 3.2 x1\nv018: 1,563 m2 x 19 fl @ 3.2 m -> GFA 29,691 m2, H 60.8 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  60.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 40 x 40 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "aspiration": null,
+  "plate": "71x22",
+  "sellable": 46282,
+  "report": "v018 cov 0.20 fh 3.2 x1\nv018: 1,563 m2 x 19 fl @ 3.2 m -> GFA 29,691 m2, H 60.8 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  60.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 71 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 71 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT"
  },
  {
   "id": 19,
@@ -255,9 +312,12 @@ const VARIANTS = [
   "height": 60.8,
   "gfa": 29691.0,
   "footprint": 1563.0,
-  "gap": 52.5,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v019 cov 0.20 fh 3.2 x2\nv019: 1,563 m2 x 19 fl @ 3.2 m -> GFA 29,691 m2, H 60.8 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  60.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v019 cov 0.20 fh 3.2 x2 block <-> v019 cov 0.20 fh 3.2 x2 block: 52.5 m available\n  Spacing-legal  PASS  52.55 m of 21.00 m required\n  Spacing-intent FAIL  52.55 m of 60.80 m required\n  => DAYLIGHT VIOLATED\n  gap: 52.5 m real (drawn) / 57.7 m CSV estimate\n  placement: twin blocks 28 x 28 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": 39.7,
+  "verdict": "PROTECTS DAYLIGHT (real gap)",
+  "aspiration": false,
+  "plate": "36x22",
+  "sellable": 46282,
+  "report": "v019 cov 0.20 fh 3.2 x2\nv019: 1,563 m2 x 19 fl @ 3.2 m -> GFA 29,691 m2, H 60.8 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  60.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v019 cov 0.20 fh 3.2 x2 block <-> v019 cov 0.20 fh 3.2 x2 block: 39.7 m available\n  Spacing-legal  PASS  39.73 m of 21.00 m required\n  Spacing-intent PASS  39.73 m of 35.10 m required\n  Spacing-aspir. NOT MET  39.73 m of 60.80 m (45deg, reported only)\n  => DAYLIGHT OK\n  gap: 39.7 m real (drawn) / 57.7 m CSV estimate\n  placement: twin blocks 36 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 36 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT (real gap)"
  },
  {
   "id": 20,
@@ -270,7 +330,10 @@ const VARIANTS = [
   "footprint": 1563.0,
   "gap": null,
   "verdict": "PROTECTS DAYLIGHT",
-  "report": "v020 cov 0.20 fh 3.6 x1\nv020: 1,563 m2 x 19 fl @ 3.6 m -> GFA 29,691 m2, H 68.4 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  68.40 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 40 x 40 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "aspiration": null,
+  "plate": "71x22",
+  "sellable": 46282,
+  "report": "v020 cov 0.20 fh 3.6 x1\nv020: 1,563 m2 x 19 fl @ 3.6 m -> GFA 29,691 m2, H 68.4 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  68.40 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 71 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 71 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT"
  },
  {
   "id": 21,
@@ -281,9 +344,12 @@ const VARIANTS = [
   "height": 68.4,
   "gfa": 29691.0,
   "footprint": 1563.0,
-  "gap": 52.5,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v021 cov 0.20 fh 3.6 x2\nv021: 1,563 m2 x 19 fl @ 3.6 m -> GFA 29,691 m2, H 68.4 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  68.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v021 cov 0.20 fh 3.6 x2 block <-> v021 cov 0.20 fh 3.6 x2 block: 52.5 m available\n  Spacing-legal  PASS  52.55 m of 21.00 m required\n  Spacing-intent FAIL  52.55 m of 68.40 m required\n  => DAYLIGHT VIOLATED\n  gap: 52.5 m real (drawn) / 57.7 m CSV estimate\n  placement: twin blocks 28 x 28 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": 39.7,
+  "verdict": "PROTECTS DAYLIGHT (real gap)",
+  "aspiration": false,
+  "plate": "36x22",
+  "sellable": 46282,
+  "report": "v021 cov 0.20 fh 3.6 x2\nv021: 1,563 m2 x 19 fl @ 3.6 m -> GFA 29,691 m2, H 68.4 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  68.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v021 cov 0.20 fh 3.6 x2 block <-> v021 cov 0.20 fh 3.6 x2 block: 39.7 m available\n  Spacing-legal  PASS  39.73 m of 21.00 m required\n  Spacing-intent PASS  39.73 m of 39.49 m required\n  Spacing-aspir. NOT MET  39.73 m of 68.40 m (45deg, reported only)\n  => DAYLIGHT OK\n  gap: 39.7 m real (drawn) / 57.7 m CSV estimate\n  placement: twin blocks 36 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 36 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT (real gap)"
  },
  {
   "id": 22,
@@ -296,7 +362,10 @@ const VARIANTS = [
   "footprint": 1563.0,
   "gap": null,
   "verdict": "PROTECTS DAYLIGHT",
-  "report": "v022 cov 0.20 fh 4.0 x1\nv022: 1,563 m2 x 19 fl @ 4.0 m -> GFA 29,691 m2, H 76.0 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  76.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 40 x 40 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "aspiration": null,
+  "plate": "71x22",
+  "sellable": 46282,
+  "report": "v022 cov 0.20 fh 4.0 x1\nv022: 1,563 m2 x 19 fl @ 4.0 m -> GFA 29,691 m2, H 76.0 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  76.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 71 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 71 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT"
  },
  {
   "id": 23,
@@ -307,9 +376,12 @@ const VARIANTS = [
   "height": 76.0,
   "gfa": 29691.0,
   "footprint": 1563.0,
-  "gap": 52.5,
+  "gap": 39.7,
   "verdict": "LEGAL ONLY (real gap)",
-  "report": "v023 cov 0.20 fh 4.0 x2\nv023: 1,563 m2 x 19 fl @ 4.0 m -> GFA 29,691 m2, H 76.0 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  76.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v023 cov 0.20 fh 4.0 x2 block <-> v023 cov 0.20 fh 4.0 x2 block: 52.5 m available\n  Spacing-legal  PASS  52.55 m of 21.00 m required\n  Spacing-intent FAIL  52.55 m of 76.00 m required\n  => DAYLIGHT VIOLATED\n  gap: 52.5 m real (drawn) / 57.7 m CSV estimate\n  placement: twin blocks 28 x 28 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "aspiration": false,
+  "plate": "36x22",
+  "sellable": 46282,
+  "report": "v023 cov 0.20 fh 4.0 x2\nv023: 1,563 m2 x 19 fl @ 4.0 m -> GFA 29,691 m2, H 76.0 m\n  TAKS           PASS  1,562.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  29,690.58 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  76.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v023 cov 0.20 fh 4.0 x2 block <-> v023 cov 0.20 fh 4.0 x2 block: 39.7 m available\n  Spacing-legal  PASS  39.73 m of 21.00 m required\n  Spacing-intent FAIL  39.73 m of 43.88 m required\n  Spacing-aspir. NOT MET  39.73 m of 76.00 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 39.7 m real (drawn) / 57.7 m CSV estimate\n  placement: twin blocks 36 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 36 x 22 m, depth 22.0 of 22.0 m max\n  => LEGAL ONLY (real gap)"
  },
  {
   "id": 24,
@@ -322,7 +394,10 @@ const VARIANTS = [
   "footprint": 1953.0,
   "gap": null,
   "verdict": "PROTECTS DAYLIGHT",
-  "report": "v024 cov 0.25 fh 2.8 x1\nv024: 1,953 m2 x 16 fl @ 2.8 m -> GFA 31,253 m2, H 44.8 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  44.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 44 x 44 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "aspiration": null,
+  "plate": "89x22",
+  "sellable": 48717,
+  "report": "v024 cov 0.25 fh 2.8 x1\nv024: 1,953 m2 x 16 fl @ 2.8 m -> GFA 31,253 m2, H 44.8 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  44.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 89 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 89 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT"
  },
  {
   "id": 25,
@@ -333,9 +408,12 @@ const VARIANTS = [
   "height": 44.8,
   "gfa": 31253.0,
   "footprint": 1953.0,
-  "gap": 41.7,
+  "gap": 22.1,
   "verdict": "LEGAL ONLY (real gap)",
-  "report": "v025 cov 0.25 fh 2.8 x2\nv025: 1,953 m2 x 16 fl @ 2.8 m -> GFA 31,253 m2, H 44.8 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  44.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v025 cov 0.25 fh 2.8 x2 block <-> v025 cov 0.25 fh 2.8 x2 block: 41.7 m available\n  Spacing-legal  PASS  41.75 m of 18.00 m required\n  Spacing-intent FAIL  41.75 m of 44.80 m required\n  => DAYLIGHT VIOLATED\n  gap: 41.7 m real (drawn) / 51.1 m CSV estimate\n  placement: twin blocks 31 x 31 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "aspiration": false,
+  "plate": "44x22",
+  "sellable": 48717,
+  "report": "v025 cov 0.25 fh 2.8 x2\nv025: 1,953 m2 x 16 fl @ 2.8 m -> GFA 31,253 m2, H 44.8 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  44.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v025 cov 0.25 fh 2.8 x2 block <-> v025 cov 0.25 fh 2.8 x2 block: 22.1 m available\n  Spacing-legal  PASS  22.11 m of 18.00 m required\n  Spacing-intent FAIL  22.11 m of 25.87 m required\n  Spacing-aspir. NOT MET  22.11 m of 44.80 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 22.1 m real (drawn) / 51.1 m CSV estimate\n  placement: twin blocks 44 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 44 x 22 m, depth 22.0 of 22.0 m max\n  => LEGAL ONLY (real gap)"
  },
  {
   "id": 26,
@@ -348,7 +426,10 @@ const VARIANTS = [
   "footprint": 1953.0,
   "gap": null,
   "verdict": "PROTECTS DAYLIGHT",
-  "report": "v026 cov 0.25 fh 3.2 x1\nv026: 1,953 m2 x 16 fl @ 3.2 m -> GFA 31,253 m2, H 51.2 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  51.20 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 44 x 44 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "aspiration": null,
+  "plate": "89x22",
+  "sellable": 48717,
+  "report": "v026 cov 0.25 fh 3.2 x1\nv026: 1,953 m2 x 16 fl @ 3.2 m -> GFA 31,253 m2, H 51.2 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  51.20 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 89 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 89 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT"
  },
  {
   "id": 27,
@@ -359,9 +440,12 @@ const VARIANTS = [
   "height": 51.2,
   "gfa": 31253.0,
   "footprint": 1953.0,
-  "gap": 41.7,
+  "gap": 22.1,
   "verdict": "LEGAL ONLY (real gap)",
-  "report": "v027 cov 0.25 fh 3.2 x2\nv027: 1,953 m2 x 16 fl @ 3.2 m -> GFA 31,253 m2, H 51.2 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  51.20 m of 80.00 m allowed\n  => COMPLIANT\nspacing v027 cov 0.25 fh 3.2 x2 block <-> v027 cov 0.25 fh 3.2 x2 block: 41.7 m available\n  Spacing-legal  PASS  41.75 m of 18.00 m required\n  Spacing-intent FAIL  41.75 m of 51.20 m required\n  => DAYLIGHT VIOLATED\n  gap: 41.7 m real (drawn) / 51.1 m CSV estimate\n  placement: twin blocks 31 x 31 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "aspiration": false,
+  "plate": "44x22",
+  "sellable": 48717,
+  "report": "v027 cov 0.25 fh 3.2 x2\nv027: 1,953 m2 x 16 fl @ 3.2 m -> GFA 31,253 m2, H 51.2 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  51.20 m of 80.00 m allowed\n  => COMPLIANT\nspacing v027 cov 0.25 fh 3.2 x2 block <-> v027 cov 0.25 fh 3.2 x2 block: 22.1 m available\n  Spacing-legal  PASS  22.11 m of 18.00 m required\n  Spacing-intent FAIL  22.11 m of 29.56 m required\n  Spacing-aspir. NOT MET  22.11 m of 51.20 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 22.1 m real (drawn) / 51.1 m CSV estimate\n  placement: twin blocks 44 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 44 x 22 m, depth 22.0 of 22.0 m max\n  => LEGAL ONLY (real gap)"
  },
  {
   "id": 28,
@@ -374,7 +458,10 @@ const VARIANTS = [
   "footprint": 1953.0,
   "gap": null,
   "verdict": "PROTECTS DAYLIGHT",
-  "report": "v028 cov 0.25 fh 3.6 x1\nv028: 1,953 m2 x 16 fl @ 3.6 m -> GFA 31,253 m2, H 57.6 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  57.60 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 44 x 44 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "aspiration": null,
+  "plate": "89x22",
+  "sellable": 48717,
+  "report": "v028 cov 0.25 fh 3.6 x1\nv028: 1,953 m2 x 16 fl @ 3.6 m -> GFA 31,253 m2, H 57.6 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  57.60 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 89 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 89 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT"
  },
  {
   "id": 29,
@@ -385,9 +472,12 @@ const VARIANTS = [
   "height": 57.6,
   "gfa": 31253.0,
   "footprint": 1953.0,
-  "gap": 41.7,
+  "gap": 22.1,
   "verdict": "LEGAL ONLY (real gap)",
-  "report": "v029 cov 0.25 fh 3.6 x2\nv029: 1,953 m2 x 16 fl @ 3.6 m -> GFA 31,253 m2, H 57.6 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  57.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v029 cov 0.25 fh 3.6 x2 block <-> v029 cov 0.25 fh 3.6 x2 block: 41.7 m available\n  Spacing-legal  PASS  41.75 m of 18.00 m required\n  Spacing-intent FAIL  41.75 m of 57.60 m required\n  => DAYLIGHT VIOLATED\n  gap: 41.7 m real (drawn) / 51.1 m CSV estimate\n  placement: twin blocks 31 x 31 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "aspiration": false,
+  "plate": "44x22",
+  "sellable": 48717,
+  "report": "v029 cov 0.25 fh 3.6 x2\nv029: 1,953 m2 x 16 fl @ 3.6 m -> GFA 31,253 m2, H 57.6 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  57.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v029 cov 0.25 fh 3.6 x2 block <-> v029 cov 0.25 fh 3.6 x2 block: 22.1 m available\n  Spacing-legal  PASS  22.11 m of 18.00 m required\n  Spacing-intent FAIL  22.11 m of 33.26 m required\n  Spacing-aspir. NOT MET  22.11 m of 57.60 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 22.1 m real (drawn) / 51.1 m CSV estimate\n  placement: twin blocks 44 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 44 x 22 m, depth 22.0 of 22.0 m max\n  => LEGAL ONLY (real gap)"
  },
  {
   "id": 30,
@@ -400,7 +490,10 @@ const VARIANTS = [
   "footprint": 1953.0,
   "gap": null,
   "verdict": "PROTECTS DAYLIGHT",
-  "report": "v030 cov 0.25 fh 4.0 x1\nv030: 1,953 m2 x 16 fl @ 4.0 m -> GFA 31,253 m2, H 64.0 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  64.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 44 x 44 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "aspiration": null,
+  "plate": "89x22",
+  "sellable": 48717,
+  "report": "v030 cov 0.25 fh 4.0 x1\nv030: 1,953 m2 x 16 fl @ 4.0 m -> GFA 31,253 m2, H 64.0 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  64.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 89 x 22 m, in-polygon, zone axis\n  Plate-depth    PASS  plate 89 x 22 m, depth 22.0 of 22.0 m max\n  => PROTECTS DAYLIGHT"
  },
  {
   "id": 31,
@@ -411,9 +504,12 @@ const VARIANTS = [
   "height": 64.0,
   "gfa": 31253.0,
   "footprint": 1953.0,
-  "gap": 41.7,
+  "gap": 22.1,
   "verdict": "LEGAL ONLY (real gap)",
-  "report": "v031 cov 0.25 fh 4.0 x2\nv031: 1,953 m2 x 16 fl @ 4.0 m -> GFA 31,253 m2, H 64.0 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  64.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v031 cov 0.25 fh 4.0 x2 block <-> v031 cov 0.25 fh 4.0 x2 block: 41.7 m available\n  Spacing-legal  PASS  41.75 m of 18.00 m required\n  Spacing-intent FAIL  41.75 m of 64.00 m required\n  => DAYLIGHT VIOLATED\n  gap: 41.7 m real (drawn) / 51.1 m CSV estimate\n  placement: twin blocks 31 x 31 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "aspiration": false,
+  "plate": "44x22",
+  "sellable": 48717,
+  "report": "v031 cov 0.25 fh 4.0 x2\nv031: 1,953 m2 x 16 fl @ 4.0 m -> GFA 31,253 m2, H 64.0 m\n  TAKS           PASS  1,953.33 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  64.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v031 cov 0.25 fh 4.0 x2 block <-> v031 cov 0.25 fh 4.0 x2 block: 22.1 m available\n  Spacing-legal  PASS  22.11 m of 18.00 m required\n  Spacing-intent FAIL  22.11 m of 36.95 m required\n  Spacing-aspir. NOT MET  22.11 m of 64.00 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 22.1 m real (drawn) / 51.1 m CSV estimate\n  placement: twin blocks 44 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 44 x 22 m, depth 22.0 of 22.0 m max\n  => LEGAL ONLY (real gap)"
  },
  {
   "id": 32,
@@ -425,8 +521,11 @@ const VARIANTS = [
   "gfa": 30472.0,
   "footprint": 2344.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v032 cov 0.30 fh 2.8 x1\nv032: 2,344 m2 x 13 fl @ 2.8 m -> GFA 30,472 m2, H 36.4 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  36.40 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 54 x 44 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 47500,
+  "report": "v032 cov 0.30 fh 2.8 x1\nv032: 2,344 m2 x 13 fl @ 2.8 m -> GFA 30,472 m2, H 36.4 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  36.40 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 2,344 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 33,
@@ -437,9 +536,12 @@ const VARIANTS = [
   "height": 36.4,
   "gfa": 30472.0,
   "footprint": 2344.0,
-  "gap": 29.3,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v033 cov 0.30 fh 2.8 x2\nv033: 2,344 m2 x 13 fl @ 2.8 m -> GFA 30,472 m2, H 36.4 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  36.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v033 cov 0.30 fh 2.8 x2 block <-> v033 cov 0.30 fh 2.8 x2 block: 29.3 m available\n  Spacing-legal  PASS  29.27 m of 15.00 m required\n  Spacing-intent FAIL  29.27 m of 36.40 m required\n  => DAYLIGHT VIOLATED\n  gap: 29.3 m real (drawn) / 45.2 m CSV estimate\n  placement: twin blocks 34 x 34 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": 4.2,
+  "verdict": "NOT LEGAL",
+  "aspiration": false,
+  "plate": "53x22",
+  "sellable": 47500,
+  "report": "v033 cov 0.30 fh 2.8 x2\nv033: 2,344 m2 x 13 fl @ 2.8 m -> GFA 30,472 m2, H 36.4 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  36.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v033 cov 0.30 fh 2.8 x2 block <-> v033 cov 0.30 fh 2.8 x2 block: 4.2 m available\n  Spacing-legal  FAIL  4.23 m of 15.00 m required\n  Spacing-intent FAIL  4.23 m of 21.02 m required\n  Spacing-aspir. NOT MET  4.23 m of 36.40 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 4.2 m real (drawn) / 45.2 m CSV estimate\n  placement: twin blocks 53 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 53 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 34,
@@ -451,8 +553,11 @@ const VARIANTS = [
   "gfa": 30472.0,
   "footprint": 2344.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v034 cov 0.30 fh 3.2 x1\nv034: 2,344 m2 x 13 fl @ 3.2 m -> GFA 30,472 m2, H 41.6 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  41.60 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 54 x 44 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 47500,
+  "report": "v034 cov 0.30 fh 3.2 x1\nv034: 2,344 m2 x 13 fl @ 3.2 m -> GFA 30,472 m2, H 41.6 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  41.60 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 2,344 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 35,
@@ -463,9 +568,12 @@ const VARIANTS = [
   "height": 41.6,
   "gfa": 30472.0,
   "footprint": 2344.0,
-  "gap": 29.3,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v035 cov 0.30 fh 3.2 x2\nv035: 2,344 m2 x 13 fl @ 3.2 m -> GFA 30,472 m2, H 41.6 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  41.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v035 cov 0.30 fh 3.2 x2 block <-> v035 cov 0.30 fh 3.2 x2 block: 29.3 m available\n  Spacing-legal  PASS  29.27 m of 15.00 m required\n  Spacing-intent FAIL  29.27 m of 41.60 m required\n  => DAYLIGHT VIOLATED\n  gap: 29.3 m real (drawn) / 45.2 m CSV estimate\n  placement: twin blocks 34 x 34 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": 4.2,
+  "verdict": "NOT LEGAL",
+  "aspiration": false,
+  "plate": "53x22",
+  "sellable": 47500,
+  "report": "v035 cov 0.30 fh 3.2 x2\nv035: 2,344 m2 x 13 fl @ 3.2 m -> GFA 30,472 m2, H 41.6 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  41.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v035 cov 0.30 fh 3.2 x2 block <-> v035 cov 0.30 fh 3.2 x2 block: 4.2 m available\n  Spacing-legal  FAIL  4.23 m of 15.00 m required\n  Spacing-intent FAIL  4.23 m of 24.02 m required\n  Spacing-aspir. NOT MET  4.23 m of 41.60 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 4.2 m real (drawn) / 45.2 m CSV estimate\n  placement: twin blocks 53 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 53 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 36,
@@ -477,8 +585,11 @@ const VARIANTS = [
   "gfa": 30472.0,
   "footprint": 2344.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v036 cov 0.30 fh 3.6 x1\nv036: 2,344 m2 x 13 fl @ 3.6 m -> GFA 30,472 m2, H 46.8 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  46.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 54 x 44 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 47500,
+  "report": "v036 cov 0.30 fh 3.6 x1\nv036: 2,344 m2 x 13 fl @ 3.6 m -> GFA 30,472 m2, H 46.8 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  46.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 2,344 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 37,
@@ -489,9 +600,12 @@ const VARIANTS = [
   "height": 46.8,
   "gfa": 30472.0,
   "footprint": 2344.0,
-  "gap": 29.3,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v037 cov 0.30 fh 3.6 x2\nv037: 2,344 m2 x 13 fl @ 3.6 m -> GFA 30,472 m2, H 46.8 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  46.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v037 cov 0.30 fh 3.6 x2 block <-> v037 cov 0.30 fh 3.6 x2 block: 29.3 m available\n  Spacing-legal  PASS  29.27 m of 15.00 m required\n  Spacing-intent FAIL  29.27 m of 46.80 m required\n  => DAYLIGHT VIOLATED\n  gap: 29.3 m real (drawn) / 45.2 m CSV estimate\n  placement: twin blocks 34 x 34 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": 4.2,
+  "verdict": "NOT LEGAL",
+  "aspiration": false,
+  "plate": "53x22",
+  "sellable": 47500,
+  "report": "v037 cov 0.30 fh 3.6 x2\nv037: 2,344 m2 x 13 fl @ 3.6 m -> GFA 30,472 m2, H 46.8 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  46.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v037 cov 0.30 fh 3.6 x2 block <-> v037 cov 0.30 fh 3.6 x2 block: 4.2 m available\n  Spacing-legal  FAIL  4.23 m of 15.00 m required\n  Spacing-intent FAIL  4.23 m of 27.02 m required\n  Spacing-aspir. NOT MET  4.23 m of 46.80 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 4.2 m real (drawn) / 45.2 m CSV estimate\n  placement: twin blocks 53 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 53 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 38,
@@ -503,8 +617,11 @@ const VARIANTS = [
   "gfa": 30472.0,
   "footprint": 2344.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v038 cov 0.30 fh 4.0 x1\nv038: 2,344 m2 x 13 fl @ 4.0 m -> GFA 30,472 m2, H 52.0 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  52.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 54 x 44 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 47500,
+  "report": "v038 cov 0.30 fh 4.0 x1\nv038: 2,344 m2 x 13 fl @ 4.0 m -> GFA 30,472 m2, H 52.0 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  52.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 2,344 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 39,
@@ -515,9 +632,12 @@ const VARIANTS = [
   "height": 52.0,
   "gfa": 30472.0,
   "footprint": 2344.0,
-  "gap": 29.3,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v039 cov 0.30 fh 4.0 x2\nv039: 2,344 m2 x 13 fl @ 4.0 m -> GFA 30,472 m2, H 52.0 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  52.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v039 cov 0.30 fh 4.0 x2 block <-> v039 cov 0.30 fh 4.0 x2 block: 29.3 m available\n  Spacing-legal  PASS  29.27 m of 15.00 m required\n  Spacing-intent FAIL  29.27 m of 52.00 m required\n  => DAYLIGHT VIOLATED\n  gap: 29.3 m real (drawn) / 45.2 m CSV estimate\n  placement: twin blocks 34 x 34 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": 4.2,
+  "verdict": "NOT LEGAL",
+  "aspiration": false,
+  "plate": "53x22",
+  "sellable": 47500,
+  "report": "v039 cov 0.30 fh 4.0 x2\nv039: 2,344 m2 x 13 fl @ 4.0 m -> GFA 30,472 m2, H 52.0 m\n  TAKS           PASS  2,343.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,471.91 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  52.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v039 cov 0.30 fh 4.0 x2 block <-> v039 cov 0.30 fh 4.0 x2 block: 4.2 m available\n  Spacing-legal  FAIL  4.23 m of 15.00 m required\n  Spacing-intent FAIL  4.23 m of 30.02 m required\n  Spacing-aspir. NOT MET  4.23 m of 52.00 m (45deg, reported only)\n  => DAYLIGHT VIOLATED\n  gap: 4.2 m real (drawn) / 45.2 m CSV estimate\n  placement: twin blocks 53 x 22 m each, in-polygon, real gap\n  Plate-depth    PASS  plate 53 x 22 m, depth 22.0 of 22.0 m max\n  => NOT LEGAL"
  },
  {
   "id": 40,
@@ -529,8 +649,11 @@ const VARIANTS = [
   "gfa": 30081.0,
   "footprint": 2735.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v040 cov 0.35 fh 2.8 x1\nv040: 2,735 m2 x 11 fl @ 2.8 m -> GFA 30,081 m2, H 30.8 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  30.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 67 x 41 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 46890,
+  "report": "v040 cov 0.35 fh 2.8 x1\nv040: 2,735 m2 x 11 fl @ 2.8 m -> GFA 30,081 m2, H 30.8 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  30.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 2,735 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 41,
@@ -541,9 +664,12 @@ const VARIANTS = [
   "height": 30.8,
   "gfa": 30081.0,
   "footprint": 2735.0,
-  "gap": 17.5,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v041 cov 0.35 fh 2.8 x2\nv041: 2,735 m2 x 11 fl @ 2.8 m -> GFA 30,081 m2, H 30.8 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  30.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v041 cov 0.35 fh 2.8 x2 block <-> v041 cov 0.35 fh 2.8 x2 block: 17.5 m available\n  Spacing-legal  PASS  17.52 m of 13.00 m required\n  Spacing-intent FAIL  17.52 m of 30.80 m required\n  => DAYLIGHT VIOLATED\n  gap: 17.5 m real (drawn) / 39.7 m CSV estimate\n  placement: twin blocks 37 x 37 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": null,
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": true,
+  "plate": null,
+  "sellable": 46890,
+  "report": "v041 cov 0.35 fh 2.8 x2\nv041: 2,735 m2 x 11 fl @ 2.8 m -> GFA 30,081 m2, H 30.8 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  30.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v041 block <-> v041 block: 39.7 m available\n  Spacing-legal  PASS  39.67 m of 13.00 m required\n  Spacing-intent PASS  39.67 m of 17.78 m required\n  Spacing-aspir. MET   39.67 m of 30.80 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 62 x 22 m blocks overlap by 13.7 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 42,
@@ -555,8 +681,11 @@ const VARIANTS = [
   "gfa": 30081.0,
   "footprint": 2735.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v042 cov 0.35 fh 3.2 x1\nv042: 2,735 m2 x 11 fl @ 3.2 m -> GFA 30,081 m2, H 35.2 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  35.20 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 67 x 41 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 46890,
+  "report": "v042 cov 0.35 fh 3.2 x1\nv042: 2,735 m2 x 11 fl @ 3.2 m -> GFA 30,081 m2, H 35.2 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  35.20 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 2,735 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 43,
@@ -567,9 +696,12 @@ const VARIANTS = [
   "height": 35.2,
   "gfa": 30081.0,
   "footprint": 2735.0,
-  "gap": 17.5,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v043 cov 0.35 fh 3.2 x2\nv043: 2,735 m2 x 11 fl @ 3.2 m -> GFA 30,081 m2, H 35.2 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  35.20 m of 80.00 m allowed\n  => COMPLIANT\nspacing v043 cov 0.35 fh 3.2 x2 block <-> v043 cov 0.35 fh 3.2 x2 block: 17.5 m available\n  Spacing-legal  PASS  17.52 m of 13.00 m required\n  Spacing-intent FAIL  17.52 m of 35.20 m required\n  => DAYLIGHT VIOLATED\n  gap: 17.5 m real (drawn) / 39.7 m CSV estimate\n  placement: twin blocks 37 x 37 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": null,
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": true,
+  "plate": null,
+  "sellable": 46890,
+  "report": "v043 cov 0.35 fh 3.2 x2\nv043: 2,735 m2 x 11 fl @ 3.2 m -> GFA 30,081 m2, H 35.2 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  35.20 m of 80.00 m allowed\n  => COMPLIANT\nspacing v043 block <-> v043 block: 39.7 m available\n  Spacing-legal  PASS  39.67 m of 13.00 m required\n  Spacing-intent PASS  39.67 m of 20.32 m required\n  Spacing-aspir. MET   39.67 m of 35.20 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 62 x 22 m blocks overlap by 13.7 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 44,
@@ -581,8 +713,11 @@ const VARIANTS = [
   "gfa": 30081.0,
   "footprint": 2735.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v044 cov 0.35 fh 3.6 x1\nv044: 2,735 m2 x 11 fl @ 3.6 m -> GFA 30,081 m2, H 39.6 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  39.60 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 67 x 41 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 46890,
+  "report": "v044 cov 0.35 fh 3.6 x1\nv044: 2,735 m2 x 11 fl @ 3.6 m -> GFA 30,081 m2, H 39.6 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  39.60 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 2,735 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 45,
@@ -593,9 +728,12 @@ const VARIANTS = [
   "height": 39.6,
   "gfa": 30081.0,
   "footprint": 2735.0,
-  "gap": 17.5,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v045 cov 0.35 fh 3.6 x2\nv045: 2,735 m2 x 11 fl @ 3.6 m -> GFA 30,081 m2, H 39.6 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  39.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v045 cov 0.35 fh 3.6 x2 block <-> v045 cov 0.35 fh 3.6 x2 block: 17.5 m available\n  Spacing-legal  PASS  17.52 m of 13.00 m required\n  Spacing-intent FAIL  17.52 m of 39.60 m required\n  => DAYLIGHT VIOLATED\n  gap: 17.5 m real (drawn) / 39.7 m CSV estimate\n  placement: twin blocks 37 x 37 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": null,
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": true,
+  "plate": null,
+  "sellable": 46890,
+  "report": "v045 cov 0.35 fh 3.6 x2\nv045: 2,735 m2 x 11 fl @ 3.6 m -> GFA 30,081 m2, H 39.6 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  39.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v045 block <-> v045 block: 39.7 m available\n  Spacing-legal  PASS  39.67 m of 13.00 m required\n  Spacing-intent PASS  39.67 m of 22.86 m required\n  Spacing-aspir. MET   39.67 m of 39.60 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 62 x 22 m blocks overlap by 13.7 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 46,
@@ -607,8 +745,11 @@ const VARIANTS = [
   "gfa": 30081.0,
   "footprint": 2735.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v046 cov 0.35 fh 4.0 x1\nv046: 2,735 m2 x 11 fl @ 4.0 m -> GFA 30,081 m2, H 44.0 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  44.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 67 x 41 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 46890,
+  "report": "v046 cov 0.35 fh 4.0 x1\nv046: 2,735 m2 x 11 fl @ 4.0 m -> GFA 30,081 m2, H 44.0 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  44.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 2,735 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 47,
@@ -619,9 +760,12 @@ const VARIANTS = [
   "height": 44.0,
   "gfa": 30081.0,
   "footprint": 2735.0,
-  "gap": 17.5,
-  "verdict": "LEGAL ONLY (real gap)",
-  "report": "v047 cov 0.35 fh 4.0 x2\nv047: 2,735 m2 x 11 fl @ 4.0 m -> GFA 30,081 m2, H 44.0 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  44.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v047 cov 0.35 fh 4.0 x2 block <-> v047 cov 0.35 fh 4.0 x2 block: 17.5 m available\n  Spacing-legal  PASS  17.52 m of 13.00 m required\n  Spacing-intent FAIL  17.52 m of 44.00 m required\n  => DAYLIGHT VIOLATED\n  gap: 17.5 m real (drawn) / 39.7 m CSV estimate\n  placement: twin blocks 37 x 37 m each, in-polygon, real gap\n  => LEGAL ONLY (real gap)"
+  "gap": null,
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": false,
+  "plate": null,
+  "sellable": 46890,
+  "report": "v047 cov 0.35 fh 4.0 x2\nv047: 2,735 m2 x 11 fl @ 4.0 m -> GFA 30,081 m2, H 44.0 m\n  TAKS           PASS  2,734.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  30,081.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  44.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v047 block <-> v047 block: 39.7 m available\n  Spacing-legal  PASS  39.67 m of 13.00 m required\n  Spacing-intent PASS  39.67 m of 25.40 m required\n  Spacing-aspir. NOT MET  39.67 m of 44.00 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 62 x 22 m blocks overlap by 13.7 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 48,
@@ -633,8 +777,11 @@ const VARIANTS = [
   "gfa": 28128.0,
   "footprint": 3125.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v048 cov 0.40 fh 2.8 x1\nv048: 3,125 m2 x 9 fl @ 2.8 m -> GFA 28,128 m2, H 25.2 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.20 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 86 x 36 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v048 cov 0.40 fh 2.8 x1\nv048: 3,125 m2 x 9 fl @ 2.8 m -> GFA 28,128 m2, H 25.2 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.20 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,125 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 49,
@@ -645,9 +792,12 @@ const VARIANTS = [
   "height": 25.2,
   "gfa": 28128.0,
   "footprint": 3125.0,
-  "gap": 6.5,
-  "verdict": "NOT LEGAL",
-  "report": "v049 cov 0.40 fh 2.8 x2\nv049: 3,125 m2 x 9 fl @ 2.8 m -> GFA 28,128 m2, H 25.2 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.20 m of 80.00 m allowed\n  => COMPLIANT\nspacing v049 cov 0.40 fh 2.8 x2 block <-> v049 cov 0.40 fh 2.8 x2 block: 6.5 m available\n  Spacing-legal  FAIL  6.47 m of 11.00 m required\n  Spacing-intent FAIL  6.47 m of 25.20 m required\n  => DAYLIGHT VIOLATED\n  gap: 6.5 m real (drawn) / 34.6 m CSV estimate\n  placement: twin blocks 40 x 40 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "gap": null,
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": true,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v049 cov 0.40 fh 2.8 x2\nv049: 3,125 m2 x 9 fl @ 2.8 m -> GFA 28,128 m2, H 25.2 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.20 m of 80.00 m allowed\n  => COMPLIANT\nspacing v049 block <-> v049 block: 34.6 m available\n  Spacing-legal  PASS  34.56 m of 11.00 m required\n  Spacing-intent PASS  34.56 m of 14.55 m required\n  Spacing-aspir. MET   34.56 m of 25.20 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 71 x 22 m blocks overlap by 31.3 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 50,
@@ -659,8 +809,11 @@ const VARIANTS = [
   "gfa": 28128.0,
   "footprint": 3125.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v050 cov 0.40 fh 3.2 x1\nv050: 3,125 m2 x 9 fl @ 3.2 m -> GFA 28,128 m2, H 28.8 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 86 x 36 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v050 cov 0.40 fh 3.2 x1\nv050: 3,125 m2 x 9 fl @ 3.2 m -> GFA 28,128 m2, H 28.8 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,125 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 51,
@@ -671,9 +824,12 @@ const VARIANTS = [
   "height": 28.8,
   "gfa": 28128.0,
   "footprint": 3125.0,
-  "gap": 6.5,
-  "verdict": "NOT LEGAL",
-  "report": "v051 cov 0.40 fh 3.2 x2\nv051: 3,125 m2 x 9 fl @ 3.2 m -> GFA 28,128 m2, H 28.8 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v051 cov 0.40 fh 3.2 x2 block <-> v051 cov 0.40 fh 3.2 x2 block: 6.5 m available\n  Spacing-legal  FAIL  6.47 m of 11.00 m required\n  Spacing-intent FAIL  6.47 m of 28.80 m required\n  => DAYLIGHT VIOLATED\n  gap: 6.5 m real (drawn) / 34.6 m CSV estimate\n  placement: twin blocks 40 x 40 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "gap": null,
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": true,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v051 cov 0.40 fh 3.2 x2\nv051: 3,125 m2 x 9 fl @ 3.2 m -> GFA 28,128 m2, H 28.8 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v051 block <-> v051 block: 34.6 m available\n  Spacing-legal  PASS  34.56 m of 11.00 m required\n  Spacing-intent PASS  34.56 m of 16.63 m required\n  Spacing-aspir. MET   34.56 m of 28.80 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 71 x 22 m blocks overlap by 31.3 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 52,
@@ -685,8 +841,11 @@ const VARIANTS = [
   "gfa": 28128.0,
   "footprint": 3125.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v052 cov 0.40 fh 3.6 x1\nv052: 3,125 m2 x 9 fl @ 3.6 m -> GFA 28,128 m2, H 32.4 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.40 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 86 x 36 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v052 cov 0.40 fh 3.6 x1\nv052: 3,125 m2 x 9 fl @ 3.6 m -> GFA 28,128 m2, H 32.4 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.40 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,125 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 53,
@@ -697,9 +856,12 @@ const VARIANTS = [
   "height": 32.4,
   "gfa": 28128.0,
   "footprint": 3125.0,
-  "gap": 6.5,
-  "verdict": "NOT LEGAL",
-  "report": "v053 cov 0.40 fh 3.6 x2\nv053: 3,125 m2 x 9 fl @ 3.6 m -> GFA 28,128 m2, H 32.4 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v053 cov 0.40 fh 3.6 x2 block <-> v053 cov 0.40 fh 3.6 x2 block: 6.5 m available\n  Spacing-legal  FAIL  6.47 m of 11.00 m required\n  Spacing-intent FAIL  6.47 m of 32.40 m required\n  => DAYLIGHT VIOLATED\n  gap: 6.5 m real (drawn) / 34.6 m CSV estimate\n  placement: twin blocks 40 x 40 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "gap": null,
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": true,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v053 cov 0.40 fh 3.6 x2\nv053: 3,125 m2 x 9 fl @ 3.6 m -> GFA 28,128 m2, H 32.4 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v053 block <-> v053 block: 34.6 m available\n  Spacing-legal  PASS  34.56 m of 11.00 m required\n  Spacing-intent PASS  34.56 m of 18.71 m required\n  Spacing-aspir. MET   34.56 m of 32.40 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 71 x 22 m blocks overlap by 31.3 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 54,
@@ -711,8 +873,11 @@ const VARIANTS = [
   "gfa": 28128.0,
   "footprint": 3125.0,
   "gap": null,
-  "verdict": "PROTECTS DAYLIGHT",
-  "report": "v054 cov 0.40 fh 4.0 x1\nv054: 3,125 m2 x 9 fl @ 4.0 m -> GFA 28,128 m2, H 36.0 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  36.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: single block 86 x 36 m, in-polygon, zone axis\n  => PROTECTS DAYLIGHT"
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v054 cov 0.40 fh 4.0 x1\nv054: 3,125 m2 x 9 fl @ 4.0 m -> GFA 28,128 m2, H 36.0 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  36.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,125 m2)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 55,
@@ -723,9 +888,12 @@ const VARIANTS = [
   "height": 36.0,
   "gfa": 28128.0,
   "footprint": 3125.0,
-  "gap": 6.5,
-  "verdict": "NOT LEGAL",
-  "report": "v055 cov 0.40 fh 4.0 x2\nv055: 3,125 m2 x 9 fl @ 4.0 m -> GFA 28,128 m2, H 36.0 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  36.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v055 cov 0.40 fh 4.0 x2 block <-> v055 cov 0.40 fh 4.0 x2 block: 6.5 m available\n  Spacing-legal  FAIL  6.47 m of 11.00 m required\n  Spacing-intent FAIL  6.47 m of 36.00 m required\n  => DAYLIGHT VIOLATED\n  gap: 6.5 m real (drawn) / 34.6 m CSV estimate\n  placement: twin blocks 40 x 40 m each, in-polygon, real gap\n  => NOT LEGAL"
+  "gap": null,
+  "verdict": "DOES NOT FIT ZONE",
+  "aspiration": false,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v055 cov 0.40 fh 4.0 x2\nv055: 3,125 m2 x 9 fl @ 4.0 m -> GFA 28,128 m2, H 36.0 m\n  TAKS           PASS  3,125.32 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  36.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v055 block <-> v055 block: 34.6 m available\n  Spacing-legal  PASS  34.56 m of 11.00 m required\n  Spacing-intent PASS  34.56 m of 20.78 m required\n  Spacing-aspir. NOT MET  34.56 m of 36.00 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 71 x 22 m blocks overlap by 31.3 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 56,
@@ -738,6 +906,9 @@ const VARIANTS = [
   "footprint": 3516.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 43846,
   "report": "v056 cov 0.45 fh 2.8 x1\nv056: 3,516 m2 x 8 fl @ 2.8 m -> GFA 28,128 m2, H 22.4 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  22.40 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,516 m2)\n  => DOES NOT FIT ZONE"
  },
  {
@@ -751,7 +922,10 @@ const VARIANTS = [
   "footprint": 3516.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
-  "report": "v057 cov 0.45 fh 2.8 x2\nv057: 3,516 m2 x 8 fl @ 2.8 m -> GFA 28,128 m2, H 22.4 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  22.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v057 block <-> v057 block: 29.8 m available\n  Spacing-legal  PASS  29.77 m of 10.00 m required\n  Spacing-intent PASS  29.77 m of 22.40 m required\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 42 x 42 m blocks overlap by 3.9 m)\n  => DOES NOT FIT ZONE"
+  "aspiration": true,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v057 cov 0.45 fh 2.8 x2\nv057: 3,516 m2 x 8 fl @ 2.8 m -> GFA 28,128 m2, H 22.4 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  22.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v057 block <-> v057 block: 29.8 m available\n  Spacing-legal  PASS  29.77 m of 10.00 m required\n  Spacing-intent PASS  29.77 m of 12.93 m required\n  Spacing-aspir. MET   29.77 m of 22.40 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 80 x 22 m blocks overlap by 48.9 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 58,
@@ -764,6 +938,9 @@ const VARIANTS = [
   "footprint": 3516.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 43846,
   "report": "v058 cov 0.45 fh 3.2 x1\nv058: 3,516 m2 x 8 fl @ 3.2 m -> GFA 28,128 m2, H 25.6 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.60 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,516 m2)\n  => DOES NOT FIT ZONE"
  },
  {
@@ -777,7 +954,10 @@ const VARIANTS = [
   "footprint": 3516.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
-  "report": "v059 cov 0.45 fh 3.2 x2\nv059: 3,516 m2 x 8 fl @ 3.2 m -> GFA 28,128 m2, H 25.6 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v059 block <-> v059 block: 29.8 m available\n  Spacing-legal  PASS  29.77 m of 10.00 m required\n  Spacing-intent PASS  29.77 m of 25.60 m required\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 42 x 42 m blocks overlap by 3.9 m)\n  => DOES NOT FIT ZONE"
+  "aspiration": true,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v059 cov 0.45 fh 3.2 x2\nv059: 3,516 m2 x 8 fl @ 3.2 m -> GFA 28,128 m2, H 25.6 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v059 block <-> v059 block: 29.8 m available\n  Spacing-legal  PASS  29.77 m of 10.00 m required\n  Spacing-intent PASS  29.77 m of 14.78 m required\n  Spacing-aspir. MET   29.77 m of 25.60 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 80 x 22 m blocks overlap by 48.9 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 60,
@@ -790,6 +970,9 @@ const VARIANTS = [
   "footprint": 3516.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 43846,
   "report": "v060 cov 0.45 fh 3.6 x1\nv060: 3,516 m2 x 8 fl @ 3.6 m -> GFA 28,128 m2, H 28.8 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,516 m2)\n  => DOES NOT FIT ZONE"
  },
  {
@@ -803,7 +986,10 @@ const VARIANTS = [
   "footprint": 3516.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
-  "report": "v061 cov 0.45 fh 3.6 x2\nv061: 3,516 m2 x 8 fl @ 3.6 m -> GFA 28,128 m2, H 28.8 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v061 block <-> v061 block: 29.8 m available\n  Spacing-legal  PASS  29.77 m of 10.00 m required\n  Spacing-intent PASS  29.77 m of 28.80 m required\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 42 x 42 m blocks overlap by 3.9 m)\n  => DOES NOT FIT ZONE"
+  "aspiration": true,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v061 cov 0.45 fh 3.6 x2\nv061: 3,516 m2 x 8 fl @ 3.6 m -> GFA 28,128 m2, H 28.8 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v061 block <-> v061 block: 29.8 m available\n  Spacing-legal  PASS  29.77 m of 10.00 m required\n  Spacing-intent PASS  29.77 m of 16.63 m required\n  Spacing-aspir. MET   29.77 m of 28.80 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 80 x 22 m blocks overlap by 48.9 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 62,
@@ -816,6 +1002,9 @@ const VARIANTS = [
   "footprint": 3516.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 43846,
   "report": "v062 cov 0.45 fh 4.0 x1\nv062: 3,516 m2 x 8 fl @ 4.0 m -> GFA 28,128 m2, H 32.0 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,516 m2)\n  => DOES NOT FIT ZONE"
  },
  {
@@ -829,7 +1018,10 @@ const VARIANTS = [
   "footprint": 3516.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
-  "report": "v063 cov 0.45 fh 4.0 x2\nv063: 3,516 m2 x 8 fl @ 4.0 m -> GFA 28,128 m2, H 32.0 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v063 block <-> v063 block: 29.8 m available\n  Spacing-legal  PASS  29.77 m of 10.00 m required\n  Spacing-intent FAIL  29.77 m of 32.00 m required\n  => DAYLIGHT VIOLATED\n  placement: DOES NOT FIT ZONE as twins (two 42 x 42 m blocks overlap by 3.9 m)\n  => DOES NOT FIT ZONE"
+  "aspiration": false,
+  "plate": null,
+  "sellable": 43846,
+  "report": "v063 cov 0.45 fh 4.0 x2\nv063: 3,516 m2 x 8 fl @ 4.0 m -> GFA 28,128 m2, H 32.0 m\n  TAKS           PASS  3,515.99 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  28,127.92 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v063 block <-> v063 block: 29.8 m available\n  Spacing-legal  PASS  29.77 m of 10.00 m required\n  Spacing-intent PASS  29.77 m of 18.48 m required\n  Spacing-aspir. NOT MET  29.77 m of 32.00 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 80 x 22 m blocks overlap by 48.9 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 64,
@@ -842,6 +1034,9 @@ const VARIANTS = [
   "footprint": 3907.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 48717,
   "report": "v064 cov 0.50 fh 2.8 x1\nv064: 3,907 m2 x 8 fl @ 2.8 m -> GFA 31,253 m2, H 22.4 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  22.40 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,907 m2)\n  => DOES NOT FIT ZONE"
  },
  {
@@ -855,7 +1050,10 @@ const VARIANTS = [
   "footprint": 3907.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
-  "report": "v065 cov 0.50 fh 2.8 x2\nv065: 3,907 m2 x 8 fl @ 2.8 m -> GFA 31,253 m2, H 22.4 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  22.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v065 block <-> v065 block: 25.2 m available\n  Spacing-legal  PASS  25.23 m of 10.00 m required\n  Spacing-intent PASS  25.23 m of 22.40 m required\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 44 x 44 m blocks overlap by 13.4 m)\n  => DOES NOT FIT ZONE"
+  "aspiration": true,
+  "plate": null,
+  "sellable": 48717,
+  "report": "v065 cov 0.50 fh 2.8 x2\nv065: 3,907 m2 x 8 fl @ 2.8 m -> GFA 31,253 m2, H 22.4 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  22.40 m of 80.00 m allowed\n  => COMPLIANT\nspacing v065 block <-> v065 block: 25.2 m available\n  Spacing-legal  PASS  25.23 m of 10.00 m required\n  Spacing-intent PASS  25.23 m of 12.93 m required\n  Spacing-aspir. MET   25.23 m of 22.40 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 89 x 22 m blocks overlap by 66.8 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 66,
@@ -868,6 +1066,9 @@ const VARIANTS = [
   "footprint": 3907.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 48717,
   "report": "v066 cov 0.50 fh 3.2 x1\nv066: 3,907 m2 x 8 fl @ 3.2 m -> GFA 31,253 m2, H 25.6 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.60 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,907 m2)\n  => DOES NOT FIT ZONE"
  },
  {
@@ -881,7 +1082,10 @@ const VARIANTS = [
   "footprint": 3907.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
-  "report": "v067 cov 0.50 fh 3.2 x2\nv067: 3,907 m2 x 8 fl @ 3.2 m -> GFA 31,253 m2, H 25.6 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v067 block <-> v067 block: 25.2 m available\n  Spacing-legal  PASS  25.23 m of 10.00 m required\n  Spacing-intent FAIL  25.23 m of 25.60 m required\n  => DAYLIGHT VIOLATED\n  placement: DOES NOT FIT ZONE as twins (two 44 x 44 m blocks overlap by 13.4 m)\n  => DOES NOT FIT ZONE"
+  "aspiration": false,
+  "plate": null,
+  "sellable": 48717,
+  "report": "v067 cov 0.50 fh 3.2 x2\nv067: 3,907 m2 x 8 fl @ 3.2 m -> GFA 31,253 m2, H 25.6 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  25.60 m of 80.00 m allowed\n  => COMPLIANT\nspacing v067 block <-> v067 block: 25.2 m available\n  Spacing-legal  PASS  25.23 m of 10.00 m required\n  Spacing-intent PASS  25.23 m of 14.78 m required\n  Spacing-aspir. NOT MET  25.23 m of 25.60 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 89 x 22 m blocks overlap by 66.8 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 68,
@@ -894,6 +1098,9 @@ const VARIANTS = [
   "footprint": 3907.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 48717,
   "report": "v068 cov 0.50 fh 3.6 x1\nv068: 3,907 m2 x 8 fl @ 3.6 m -> GFA 31,253 m2, H 28.8 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,907 m2)\n  => DOES NOT FIT ZONE"
  },
  {
@@ -907,7 +1114,10 @@ const VARIANTS = [
   "footprint": 3907.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
-  "report": "v069 cov 0.50 fh 3.6 x2\nv069: 3,907 m2 x 8 fl @ 3.6 m -> GFA 31,253 m2, H 28.8 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v069 block <-> v069 block: 25.2 m available\n  Spacing-legal  PASS  25.23 m of 10.00 m required\n  Spacing-intent FAIL  25.23 m of 28.80 m required\n  => DAYLIGHT VIOLATED\n  placement: DOES NOT FIT ZONE as twins (two 44 x 44 m blocks overlap by 13.4 m)\n  => DOES NOT FIT ZONE"
+  "aspiration": false,
+  "plate": null,
+  "sellable": 48717,
+  "report": "v069 cov 0.50 fh 3.6 x2\nv069: 3,907 m2 x 8 fl @ 3.6 m -> GFA 31,253 m2, H 28.8 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  28.80 m of 80.00 m allowed\n  => COMPLIANT\nspacing v069 block <-> v069 block: 25.2 m available\n  Spacing-legal  PASS  25.23 m of 10.00 m required\n  Spacing-intent PASS  25.23 m of 16.63 m required\n  Spacing-aspir. NOT MET  25.23 m of 28.80 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 89 x 22 m blocks overlap by 66.8 m)\n  => DOES NOT FIT ZONE"
  },
  {
   "id": 70,
@@ -920,6 +1130,9 @@ const VARIANTS = [
   "footprint": 3907.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
+  "aspiration": null,
+  "plate": null,
+  "sellable": 48717,
   "report": "v070 cov 0.50 fh 4.0 x1\nv070: 3,907 m2 x 8 fl @ 4.0 m -> GFA 31,253 m2, H 32.0 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.00 m of 80.00 m allowed\n  => COMPLIANT\n  placement: DOES NOT FIT ZONE (no rectangle up to 4:1 holds 3,907 m2)\n  => DOES NOT FIT ZONE"
  },
  {
@@ -933,6 +1146,9 @@ const VARIANTS = [
   "footprint": 3907.0,
   "gap": null,
   "verdict": "DOES NOT FIT ZONE",
-  "report": "v071 cov 0.50 fh 4.0 x2\nv071: 3,907 m2 x 8 fl @ 4.0 m -> GFA 31,253 m2, H 32.0 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v071 block <-> v071 block: 25.2 m available\n  Spacing-legal  PASS  25.23 m of 10.00 m required\n  Spacing-intent FAIL  25.23 m of 32.00 m required\n  => DAYLIGHT VIOLATED\n  placement: DOES NOT FIT ZONE as twins (two 44 x 44 m blocks overlap by 13.4 m)\n  => DOES NOT FIT ZONE"
+  "aspiration": false,
+  "plate": null,
+  "sellable": 48717,
+  "report": "v071 cov 0.50 fh 4.0 x2\nv071: 3,907 m2 x 8 fl @ 4.0 m -> GFA 31,253 m2, H 32.0 m\n  TAKS           PASS  3,906.66 m2 of 3,906.66 m2 allowed\n  KAKS           PASS  31,253.24 m2 of 31,253.24 m2 allowed\n  Hmaks          PASS  32.00 m of 80.00 m allowed\n  => COMPLIANT\nspacing v071 block <-> v071 block: 25.2 m available\n  Spacing-legal  PASS  25.23 m of 10.00 m required\n  Spacing-intent PASS  25.23 m of 18.48 m required\n  Spacing-aspir. NOT MET  25.23 m of 32.00 m (45deg, reported only)\n  => DAYLIGHT OK\n  placement: DOES NOT FIT ZONE as twins (two 89 x 22 m blocks overlap by 66.8 m)\n  => DOES NOT FIT ZONE"
  }
 ];

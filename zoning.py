@@ -53,8 +53,10 @@ __all__ = [
     "PodiumMassing",
     "PodiumReport",
     "check_podium",
+    "YieldModel",
     "DAYLIGHT",
     "PLATE",
+    "YIELD",
     "SITE",
 ]
 
@@ -568,6 +570,48 @@ def check_podium(massing: PodiumMassing,
                                 rule=daylight, checks=sp_checks, aspiration=asp)
     return PodiumReport(massing=massing, envelope=envelope,
                         checks=checks, spacing=spacing)
+
+
+# ---------------------------------------------------------------------------
+# Yield estimates (Session 10): metrics, not rules
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class YieldModel:
+    """Investor-facing estimates derived from emsal GFA.
+
+    Calibrated from the Transform Fikirtepe valuation report
+    (18.04-01-138, 04.05.2018) for parcel 3412/3 itself:
+
+        built program (konut+ofis) 38,973.34 m2 / emsal 31,253.24 = 1.2470
+        sellable area              48,716.68 m2 / emsal 31,253.24 = 1.5588
+        total construction         78,544.85 m2 / emsal 31,253.24 = 2.5132
+
+    The program factor is emsal-exempt area (balconies, shafts, common
+    circulation); the sellable factor adds the 25% sale-contract
+    gross-up; the construction factor includes the six basement
+    parking levels. These are ESTIMATES for ranking variants in
+    investor language - they are never pass/fail rules.
+    """
+
+    program_factor: float = 1.2470
+    sellable_factor: float = 1.5588
+    construction_factor: float = 2.5132
+
+    def program(self, emsal_gfa: float) -> float:
+        """Estimated built program area (gross konut+ticaret)."""
+        return emsal_gfa * self.program_factor
+
+    def sellable(self, emsal_gfa: float) -> float:
+        """Estimated sellable area (satilabilir alan)."""
+        return emsal_gfa * self.sellable_factor
+
+    def construction(self, emsal_gfa: float) -> float:
+        """Estimated total construction area (toplam insaat alani)."""
+        return emsal_gfa * self.construction_factor
+
+
+YIELD = YieldModel()
 
 
 # ---------------------------------------------------------------------------

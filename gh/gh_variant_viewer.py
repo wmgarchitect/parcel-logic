@@ -91,13 +91,22 @@ def rect_fits(center, half_l, half_w):
 
 
 def fit_rect(center, area):
-    """Widest (most square) L x W rectangle of `area` that fits at
-    `center`, elongating along the zone axis up to ASPECT_CAP.
-    Returns (L, W) or None."""
-    w_max = math.sqrt(area)                      # square
-    w_min = math.sqrt(area / ASPECT_CAP)         # 4:1 slab
+    """Widest L x W rectangle of `area` that fits at `center`.
+
+    v4: width is capped at PlateRule.max_depth (22 m) BEFORE the
+    search starts - the buildability rule drives the block shape
+    instead of rejecting square blocks after the fact. Residential
+    plates come out as slabs (e.g. 36 x 22), never deep squares.
+    Elongates along the zone axis down to a 6:1 slab; beyond that,
+    the block genuinely does not fit this zone."""
+    w_max = min(math.sqrt(area), zoning.PLATE.max_depth)
+    w_min = math.sqrt(area / 6.0)
+    if w_min > w_max:
+        w_min = w_max / 2.0
     for k in range(WIDTH_STEPS + 1):
         w = w_max - (w_max - w_min) * k / WIDTH_STEPS
+        if w <= 0:
+            break
         l = area / w
         if rect_fits(center, l / 2.0, w / 2.0):
             return (l, w)
@@ -181,6 +190,11 @@ if r.spacing is not None and gap_drawn is not None:
 elif r.spacing is not None:
     lines.append(str(r.spacing))
 lines.append("  placement: " + placement_note)
+if geo:
+    plate_c = zoning.PLATE.check(l, w)
+    lines.append("  {:<14} {}  plate {:.0f} x {:.0f} m, depth {:.1f} of {:.1f} m max".format(
+        "Plate-depth", "PASS" if plate_c.ok else "FAIL", l, w,
+        plate_c.value, plate_c.limit))
 
 if not fits_zone:
     verdict = "DOES NOT FIT ZONE"
