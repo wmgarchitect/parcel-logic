@@ -6,8 +6,9 @@ Run:  python3 test_zoning.py   (or pytest)
 import math
 import unittest
 
-from zoning import (DAYLIGHT, SITE, DaylightRule, Massing, ZoningEnvelope,
-                    check, check_spacing, massing_from_coverage,
+from zoning import (DAYLIGHT, PLATE, SITE, DaylightRule, Massing,
+                    PodiumMassing, Tower, ZoningEnvelope, check,
+                    check_podium, check_spacing, massing_from_coverage,
                     sweep_coverage, variants_to_csv)
 
 
@@ -111,7 +112,8 @@ class TestVariantGeneration(unittest.TestCase):
 
 
 class TestDaylightRule(unittest.TestCase):
-    """Session 5: spacing between facing blocks, legal + intent levels."""
+    """Sessions 5+9: legal floor, calibrated intent (60 deg), reported
+    aspiration (45 deg)."""
 
     def test_side_distance_regulation_values(self):
         # Planli Alanlar Imar Yonetmeligi: 3.00 m up to 4 floors,
@@ -125,31 +127,36 @@ class TestDaylightRule(unittest.TestCase):
         # Two 25-floor blocks on one parcel: 13.5 + 13.5 = 27 m
         self.assertAlmostEqual(DAYLIGHT.legal_spacing(25, 25), 27.0)
 
-    def test_intent_spacing_45deg(self):
-        # 45 degrees: spacing >= shading height
-        self.assertAlmostEqual(DAYLIGHT.intent_spacing(80.0), 80.0, places=6)
+    def test_intent_is_60deg_h_over_2_class(self):
+        # calibrated Session 9: 80 m tower demands 80/tan(60) = 46.19 m
+        self.assertAlmostEqual(DAYLIGHT.intent_spacing(80.0),
+                               80.0 / math.tan(math.radians(60)), places=6)
 
-    def test_intent_spacing_steeper_angle_is_laxer(self):
-        rule60 = DaylightRule(obstruction_angle_deg=60.0)
-        self.assertAlmostEqual(rule60.intent_spacing(80.0), 80.0 / math.tan(math.radians(60)), places=6)
-        self.assertLess(rule60.intent_spacing(80.0), DAYLIGHT.intent_spacing(80.0))
+    def test_aspiration_is_45deg_full_height(self):
+        self.assertAlmostEqual(DAYLIGHT.aspiration_spacing(80.0), 80.0, places=6)
 
-    def test_built_reality_gap_fails_intent_passes_legal(self):
-        # Twin 25-floor towers with a 30 m gap: legal (27 m) OK,
-        # intent at 45 degrees (80 m) violated. The note's argument in numbers.
+    def test_built_reality_gap_still_fails_intent(self):
+        # Twin 25-floor towers, 30 m gap: legal (27 m) OK, intent at
+        # 60 deg (46.2 m) still violated. Calibration did not absolve
+        # the built scheme; it only stopped rejecting everything.
         tower = Massing(625.0, 25, 3.2, label="tower")
         r = check_spacing(tower, tower, available=30.0)
         by_rule = {c.rule: c.ok for c in r.checks}
         self.assertTrue(by_rule["Spacing-legal"])
         self.assertFalse(by_rule["Spacing-intent"])
         self.assertFalse(r.ok)
+        self.assertFalse(r.aspiration_ok)
 
-    def test_generous_gap_passes_both(self):
+    def test_aspiration_reported_not_binding(self):
+        # 50 m gap for 80 m towers: intent (46.2) passes, aspiration
+        # (80) not met - and ok must still be True.
         tower = Massing(625.0, 25, 3.2)
-        r = check_spacing(tower, tower, available=80.0)
+        r = check_spacing(tower, tower, available=50.0)
         self.assertTrue(r.ok, str(r))
+        self.assertFalse(r.aspiration_ok)
+        self.assertIn("reported only", str(r))
 
-    def test_below_legal_fails_both(self):
+    def test_below_legal_fails_all(self):
         tower = Massing(625.0, 25, 3.2)
         r = check_spacing(tower, tower, available=20.0)
         self.assertFalse(any(c.ok for c in r.checks))
@@ -159,16 +166,107 @@ class TestDaylightRule(unittest.TestCase):
         low = Massing(3906.0, 8, 4.0)     # 32 m
         r = check_spacing(tall, low, available=50.0)
         intent = next(c for c in r.checks if c.rule == "Spacing-intent")
-        self.assertAlmostEqual(intent.limit, 80.0)  # taller block shades
-        # legal: 13.5 + (3 + 0.5*4) = 18.5
+        self.assertAlmostEqual(intent.limit, 80.0 / math.tan(math.radians(60)), places=4)
         legal = next(c for c in r.checks if c.rule == "Spacing-legal")
-        self.assertAlmostEqual(legal.limit, 18.5)
+        self.assertAlmostEqual(legal.limit, 18.5)  # 13.5 + (3 + 0.5*4)
 
     def test_bad_angle_raises(self):
         with self.assertRaises(ValueError):
-            DaylightRule(obstruction_angle_deg=0).intent_spacing(80)
+            DaylightRule(intent_angle_deg=0).intent_spacing(80)
         with self.assertRaises(ValueError):
-            DaylightRule(obstruction_angle_deg=90).intent_spacing(80)
+            DaylightRule(intent_angle_deg=90).intent_spacing(80)
+
+    def test_backward_compatible_alias(self):
+        self.assertAlmostEqual(DAYLIGHT.obstruction_angle_deg, 60.0)
+
+
+class TestPlateRule(unittest.TestCase):
+    """Session 9: the efficiency floor from the note, encoded."""
+
+    def test_slender_plate_passes(self):
+        self.assertTrue(PLATE.check(30.0, 20.0).ok)
+
+    def test_deep_slab_fails(self):
+        # the 54 x 44 fake winner from the first grid run
+        c = PLATE.check(54.0, 44.0)
+        self.assertFalse(c.ok)
+        self.assertAlmostEqual(c.value, 44.0)
+
+    def test_at_limit_passes(self):
+        self.assertTrue(PLATE.check(40.0, 22.0).ok)
+
+
+class TestPodiumMassing(unittest.TestCase):
+    """Session 9: the built typology, representable and judgeable."""
+
+    # The Transform Fikirtepe C+D pattern on 3412/3, abstracted:
+    # shared podium (ground+2, commercial-height floors), two slender
+    # towers above, 22 floors each. Dimensions are plausible stand-ins
+    # until measured drawings; the point is the typology and the math.
+    def _built_like(self):
+        towers = (Tower(length=38.0, width=20.0, floors=22, floor_height=3.0),
+                  Tower(length=38.0, width=20.0, floors=22, floor_height=3.0))
+        return PodiumMassing(podium_footprint=3_800.0, podium_floors=3,
+                             podium_floor_height=4.5, towers=towers,
+                             label="built-like C+D")
+
+    def test_gfa_accounting(self):
+        pm = self._built_like()
+        expected = 3_800 * 3 + 2 * (38 * 20 * 22)
+        self.assertAlmostEqual(pm.gfa, expected)
+
+    def test_height_is_podium_plus_tallest(self):
+        pm = self._built_like()
+        self.assertAlmostEqual(pm.height, 3 * 4.5 + 22 * 3.0)  # 79.5 m
+
+    def test_built_like_scheme_representable_and_judged(self):
+        # The typology is representable and every rule fires on it.
+        # (KAKS verdict for these stand-in dims is covered below.)
+        pm = self._built_like()
+        r = check_podium(pm, SITE, tower_gap=30.0)
+        by_rule = {c.rule: c.ok for c in r.checks}
+        self.assertTrue(by_rule["TAKS"])     # 3,800 < 3,906.66
+        self.assertTrue(by_rule["Hmaks"])    # 79.5 < 80
+        self.assertTrue(by_rule["Plate-T1"] and by_rule["Plate-T2"])
+        self.assertIn("KAKS", by_rule)
+        self.assertIsNotNone(r.spacing)
+
+    def test_built_like_kaks_math(self):
+        # 3,800*3 + 2*(760*22) = 11,400 + 33,440 = 44,840 > 31,253:
+        # a full-TAKS podium with two full towers overshoots KAKS.
+        # The built scheme fits KAKS by using less podium GFA share -
+        # the generator's job is finding that balance. Verify the
+        # check catches the overshoot honestly.
+        pm = self._built_like()
+        r = check_podium(pm, SITE)
+        kaks = next(c for c in r.checks if c.rule == "KAKS")
+        self.assertFalse(kaks.ok)
+
+    def test_kaks_feasible_podium_scheme(self):
+        # Same typology, GFA-balanced: podium 3,800 x 2 + two 30x20
+        # towers x 19 fl = 7,600 + 22,800 = 30,400 <= 31,253.
+        towers = (Tower(30.0, 20.0, 19, 3.0), Tower(30.0, 20.0, 19, 3.0))
+        pm = PodiumMassing(3_800.0, 2, 4.5, towers, label="balanced")
+        r = check_podium(pm, SITE, tower_gap=35.0)
+        self.assertTrue(all(c.ok for c in r.checks), str(r))
+        # towers 57 m tall above podium: intent needs 32.9 m -> 35 OK
+        self.assertTrue(r.spacing.ok, str(r.spacing))
+        self.assertTrue(r.ok)
+
+    def test_deep_tower_plate_caught(self):
+        towers = (Tower(40.0, 30.0, 15, 3.0),)   # 30 m deep plate
+        pm = PodiumMassing(3_000.0, 2, 4.5, towers)
+        r = check_podium(pm, SITE)
+        plate = next(c for c in r.checks if c.rule == "Plate-T1")
+        self.assertFalse(plate.ok)
+
+    def test_spacing_uses_tower_height_not_total(self):
+        towers = (Tower(30.0, 20.0, 19, 3.0), Tower(30.0, 20.0, 19, 3.0))
+        pm = PodiumMassing(3_800.0, 2, 4.5, towers)
+        r = check_podium(pm, SITE, tower_gap=35.0)
+        intent = next(c for c in r.spacing.checks if c.rule == "Spacing-intent")
+        # shading = tower height 57 m, not total 66 m
+        self.assertAlmostEqual(intent.limit, 57.0 / math.tan(math.radians(60)), places=4)
 
 
 if __name__ == "__main__":

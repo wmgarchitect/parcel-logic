@@ -58,12 +58,15 @@ class TestGrid(unittest.TestCase):
         self.assertTrue(r.ok_legal)
         self.assertTrue(r.ok_intent, str(r.spacing))
 
-    def test_twin_near_miss_by_centimeters(self):
-        # cov 0.25, fh 3.2, twin: height 51.2 m vs gap ~51.1 m —
-        # fails the intent line by ~10 cm. Rules are strict.
+    def test_twin_near_miss_moved_to_aspiration(self):
+        # cov 0.25, fh 3.2, twin: height 51.2 m vs gap ~51.1 m.
+        # At the original 45 deg line this missed by ~10 cm; after the
+        # Session 9 calibration (intent 60 deg) it passes, and the
+        # 45 deg near-miss stays visible in the aspiration report.
         r = self.by_key[(0.25, 3.2, 2)]
         self.assertTrue(r.ok_legal)
-        self.assertFalse(r.ok_intent)
+        self.assertTrue(r.ok_intent)
+        self.assertFalse(r.spacing.aspiration_ok)
 
     def test_twin_overheight_fails_zoning_not_just_spacing(self):
         # cov 0.10, fh 2.8, twin: 40 fl = 112 m > Hmaks
