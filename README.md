@@ -36,10 +36,12 @@ print(report)        # per-rule PASS/FAIL with real numbers
 
 ## What's here
 
-- **`zoning.py`** — the module. `ZoningEnvelope` (parcel + rules), `Massing` (a candidate building), `check()` (TAKS/KAKS/Hmaks compliance), `massing_from_coverage()` and `sweep_coverage()` (the fat-slab ↔ slim-tower spectrum), `variants_to_csv()` (metrics export), and `DaylightRule` / `check_spacing()` — spacing between facing blocks checked at two levels: the legal floor (Planlı Alanlar İmar Yönetmeliği side distances, growing with floor count) and the lab's stricter daylight intent (obstruction-angle rule). Pure Python 3, standard library only.
-- **`test_zoning.py`** — 25 tests pinned to the verified site numbers (appraisal report + official plan documents), the built reality, and the regulation's spacing values.
+- **`zoning.py`** — the rules. `ZoningEnvelope` (parcel + plan numbers), `Massing`, `check()` (TAKS/KAKS/Hmaks), `DaylightRule` — spacing between facing blocks at **three levels**: the legal floor (Planlı Alanlar İmar Yönetmeliği side distances), the committed 60° intent line (binding), and the original 45° aspiration (reported on every result, never binding). `PlateRule` — residential floor plates capped at 22 m depth, the buildability floor. `Tower` / `PodiumMassing` / `check_podium()` — the podium-plus-towers typology the real project on this parcel uses, fully judgeable. `YieldModel` — sellable/construction estimates from emsal GFA, factors calibrated from this parcel's own 2018 valuation report. Pure Python 3, standard library only.
+- **`variants.py`** — the search. Coverage × floor height × one-or-two blocks, every candidate judged by every rule, exported to CSV.
+- **`test_zoning.py` + `test_variants.py`** — 49 tests pinned to the verified site numbers, the regulation's values, the valuation report's yield table, and the built reality.
+- **`explorer/`** — the [Design Explorer](explorer/index.html): a single-file HTML gallery of all 72 candidates, each card carrying its rendered massing, plate dimensions, measured gap, emsal and sellable areas, the 45° aspiration badge, and its full styled pass/fail report. Filter by verdict or block count, sort by any metric.
 
-The two-level spacing rule is the project's argument in code: twin 25-floor towers 30 m apart are perfectly legal (the yönetmelik asks 27 m) and still fail the daylight intent (the 45° rule asks 80 m). Legality and light are different standards, and the module reports both.
+The spacing rule is the project's argument in code: twin 25-floor towers 30 m apart are perfectly legal (the yönetmelik asks 27 m) and still fail the daylight intent (60° asks 46 m; the 45° aspiration asks the full 80). Legality and light are different standards, and the module reports all of them. The rules were calibrated in the open — the log records why 45° moved from binding to reported, and the plate rule exists because the first grid run approved slabs no architect would draw.
 
 Run the demo and the tests:
 
