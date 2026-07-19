@@ -1,5 +1,7 @@
 __pycache__/
 *.pyc
+explorer/audit_*.json
+explorer/reports_*.json
 .pytest_cache/
 *.3dmbak
 *.rhl

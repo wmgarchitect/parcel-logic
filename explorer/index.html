@@ -89,7 +89,7 @@
 <body>
 
 <div class="kicker">Parcel Logic · Design Explorer</div>
-<h1>72 candidates. Every rule. No exceptions.</h1>
+<h1>126 candidates. Two typologies. Every rule. No exceptions.</h1>
 <p class="sub">
   Every massing option the V01 grid can produce on parcel Merdivenköy 3412/3
   (Kadıköy, Istanbul), placed inside the real setback boundary and judged by
@@ -109,6 +109,10 @@
   <button class="f" data-v="legal">Legal only</button>
   <button class="f" data-v="illegal">Not legal</button>
   <button class="f" data-v="nofit">Doesn't fit</button>
+  <span class="lbl" style="margin-left:14px">Typology</span>
+  <button class="f on" data-t="all">All</button>
+  <button class="f" data-t="flat">Slabs</button>
+  <button class="f" data-t="podium">Podium+towers</button>
   <span class="lbl" style="margin-left:14px">Blocks</span>
   <button class="f on" data-b="all">All</button>
   <button class="f" data-b="1">Single</button>
@@ -142,7 +146,7 @@ const BADGE = { protects: ["b-protects", "PROTECTS DAYLIGHT"],
                 illegal: ["b-illegal", "NOT LEGAL"],
                 nofit: ["b-nofit", "DOESN'T FIT ZONE"] };
 
-let fVerdict = "all", fBlocks = "all";
+let fVerdict = "all", fBlocks = "all", fTypo = "all";
 
 function reportHtml(txt) {
   return txt.split("\n").map((l, i) => {
@@ -162,8 +166,11 @@ function reportHtml(txt) {
 
 function chips(v) {
   const c = [];
+  if (v.typology === "podium")
+    c.push(`<b>PODIUM</b> ${v.podium_floors} fl + towers`);
   c.push(`cov <b>${v.cov.toFixed(2)}</b>`);
-  c.push(v.blocks === 2 ? "<b>twin</b> blocks" : "<b>single</b> block");
+  if (v.typology !== "podium")
+    c.push(v.blocks === 2 ? "<b>twin</b> blocks" : "<b>single</b> block");
   c.push(`<b>${v.floors}</b> fl @ ${v.fh.toFixed(1)}`);
   c.push(`H <b>${v.height.toFixed(1)} m</b>`);
   if (v.plate) c.push(`plate <b>${v.plate} m</b>`);
@@ -181,6 +188,7 @@ function render() {
     const vc = V_CLASS(v.verdict);
     if (fVerdict !== "all" && vc !== fVerdict) return false;
     if (fBlocks !== "all" && v.blocks !== +fBlocks) return false;
+    if (fTypo !== "all" && v.typology !== fTypo) return false;
     return true;
   });
   const key = { gfa: v => -v.gfa, floors: v => -v.floors,
@@ -217,6 +225,10 @@ document.querySelectorAll("[data-v]").forEach(b => b.onclick = () => {
 document.querySelectorAll("[data-b]").forEach(b => b.onclick = () => {
   document.querySelectorAll("[data-b]").forEach(x => x.classList.remove("on"));
   b.classList.add("on"); fBlocks = b.dataset.b; render();
+});
+document.querySelectorAll("[data-t]").forEach(b => b.onclick = () => {
+  document.querySelectorAll("[data-t]").forEach(x => x.classList.remove("on"));
+  b.classList.add("on"); fTypo = b.dataset.t; render();
 });
 document.getElementById("sort").onchange = render;
 render();
