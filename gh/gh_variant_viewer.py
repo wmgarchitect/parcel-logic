@@ -1,17 +1,16 @@
-"""V01_SiteBrief.gh — VariantViewer component (Python 3), v5 (Session 10).
+"""V01_SiteBrief.gh — VariantViewer component (Python 3), v6 (polish phase).
 
-One slider walks the ENTIRE design space:
-    idx 0-71    flat grid (variants.py): one or two slab blocks
-    idx 72-125  podium grid (variants_podium.py): commercial base + twin towers
+v6 = v5 placement + FLOOR PLATES + PROGRAM SPLIT:
+  - every block is drawn as its real floors: stacked plates, one per
+    judged floor, plate height = floor height minus a small reveal
+  - two geometry outputs, so program gets color downstream:
+      geo   -> residential plates (towers, slabs)          [cream]
+      geo2  -> commercial plates (the podium)              [amber]
+    wire each to its own Custom Preview with a material.
 
-Placement is in-polygon against the real setback curve, plates are born
-buildable (residential width capped at 22 m; podium exempt), gaps are
-measured on the drawn geometry and re-judged. No fallback: what cannot
-fit says DOES NOT FIT ZONE and draws nothing.
-
-Component setup (unchanged from v3/v4):
-    inputs :  idx (int slider 0-125), zone_crv (Curve) <- SetbackOffset C
-    outputs:  geo, report
+Component setup:
+    inputs :  idx (int slider 0-125), zone_crv (Curve)
+    outputs:  out, geo, geo2, report   <- ONE new output vs v5: geo2
 """
 
 import sys
@@ -42,6 +41,7 @@ TOL = sc.doc.ModelAbsoluteTolerance
 WORLD_XY = rg.Plane.WorldXY
 WIDTH_STEPS = 40
 MARCH_STEP = 0.25
+REVEAL = 0.35            # visual gap between plates, meters
 
 # ---------------- zone frame ----------------
 amp = rg.AreaMassProperties.Compute(zone_crv)
@@ -75,8 +75,6 @@ def rect_fits(center, half_l, half_w):
 
 
 def fit_rect(center, area, w_cap=None):
-    """Widest L x W rectangle of `area` fitting at `center`. Width starts
-    at min(sqrt(area), w_cap) and elongates along the axis to 6:1."""
     w_max = math.sqrt(area)
     if w_cap is not None:
         w_max = min(w_max, w_cap)
@@ -105,20 +103,25 @@ def march_out(l, w, sign):
     return last_good
 
 
-def block_box(center, l, w, height, z0=0.0):
-    plane = rg.Plane(rg.Point3d(center.X, center.Y, z0), axis, perp)
-    return rg.Box(plane,
-                  rg.Interval(-l / 2.0, l / 2.0),
-                  rg.Interval(-w / 2.0, w / 2.0),
-                  rg.Interval(0.0, height))
+def plates(center, l, w, floors, fh, z0=0.0):
+    """One brep box per floor: the honest architectural read."""
+    out = []
+    for k in range(int(floors)):
+        z = z0 + k * fh
+        plane = rg.Plane(rg.Point3d(center.X, center.Y, z), axis, perp)
+        out.append(rg.Box(plane,
+                          rg.Interval(-l / 2.0, l / 2.0),
+                          rg.Interval(-w / 2.0, w / 2.0),
+                          rg.Interval(0.0, max(fh - REVEAL, 0.4))))
+    return out
 
 
-geo = []
+geo = []    # residential plates
+geo2 = []   # commercial plates
 lines = []
 fits_zone = False
 
 if i < len(flat_rows):
-    # ---------------- flat grid (v4 behavior) ----------------
     r = flat_rows[i]
     m = r.massing
     gap_drawn = None
@@ -127,7 +130,7 @@ if i < len(flat_rows):
                         w_cap=zoning.PLATE.max_depth)
         if dims:
             l, w = dims
-            geo.append(block_box(centroid, l, w, m.height))
+            geo += plates(centroid, l, w, m.floors, m.floor_height)
             fits_zone = True
             placement = "single block {:.0f} x {:.0f} m, in-polygon".format(l, w)
         else:
@@ -142,8 +145,8 @@ if i < len(flat_rows):
             p_neg = march_out(l, w, -1.0)
             gap_drawn = p_pos.DistanceTo(p_neg) - l
             if gap_drawn > 0.0:
-                geo.append(block_box(p_pos, l, w, m.height))
-                geo.append(block_box(p_neg, l, w, m.height))
+                geo += plates(p_pos, l, w, m.floors, m.floor_height)
+                geo += plates(p_neg, l, w, m.floors, m.floor_height)
                 fits_zone = True
                 placement = "twin blocks {:.0f} x {:.0f} m, in-polygon, real gap".format(l, w)
             else:
@@ -166,7 +169,7 @@ if i < len(flat_rows):
     else:
         legal_real = r.zoning.ok and fits_zone
         intent_real = legal_real and (r.blocks == 1)
-    if geo:
+    if fits_zone:
         pc = zoning.PLATE.check(l, w)
         lines.append("  Plate-depth   {}  {:.0f} x {:.0f} m".format(
             "PASS" if pc.ok else "FAIL", l, w))
@@ -179,7 +182,6 @@ if i < len(flat_rows):
     lines.append("  => " + verdict)
 
 else:
-    # ---------------- podium grid (new in v5) ----------------
     p = pod_rows[i - len(flat_rows)]
     pm = p.massing
     podium_h = pm.podium_height
@@ -191,30 +193,27 @@ else:
     if dims:
         pl, pw = dims
         if pw + TOL >= t0.width:
-            # podium fits; towers march inside the PODIUM rectangle
-            geo.append(block_box(centroid, pl, pw, podium_h))
             t_half = (pl - t0.length) / 2.0
             if t_half > 0:
-                c_pos = rg.Point3d(centroid + axis * t_half)
-                c_neg = rg.Point3d(centroid - axis * t_half)
                 gap_drawn = 2.0 * t_half - t0.length
                 if gap_drawn > 0.0:
-                    geo.append(block_box(c_pos, t0.length, t0.width,
-                                         t0.height, z0=podium_h))
-                    geo.append(block_box(c_neg, t0.length, t0.width,
-                                         t0.height, z0=podium_h))
+                    geo2 += plates(centroid, pl, pw, pm.podium_floors,
+                                   pm.podium_floor_height)
+                    c_pos = rg.Point3d(centroid + axis * t_half)
+                    c_neg = rg.Point3d(centroid - axis * t_half)
+                    geo += plates(c_pos, t0.length, t0.width, t0.floors,
+                                  t0.floor_height, z0=podium_h)
+                    geo += plates(c_neg, t0.length, t0.width, t0.floors,
+                                  t0.floor_height, z0=podium_h)
                     fits_zone = True
                     placement = ("podium {:.0f} x {:.0f} m + twin towers {:.0f} x {:.0f} m "
                                  "on top, real gap".format(pl, pw, t0.length, t0.width))
                 else:
-                    geo = []
                     placement = "DOES NOT FIT: towers overlap on this podium ({:.1f} m)".format(-gap_drawn)
                     gap_drawn = None
             else:
-                geo = []
                 placement = "DOES NOT FIT: podium shorter than one tower plate"
         else:
-            geo = []
             placement = "DOES NOT FIT: podium narrower than tower depth"
     else:
         placement = "DOES NOT FIT ZONE (podium {:,.0f} m2)".format(pm.podium_footprint)
