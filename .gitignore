@@ -2,6 +2,9 @@ __pycache__/
 *.pyc
 explorer/audit_*.json
 explorer/reports_*.json
+context/*.log
+pl_dump*.py
+"zoning (*).py"
 .pytest_cache/
 *.3dmbak
 *.rhl

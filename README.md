@@ -4,6 +4,8 @@
 
 Part of [Parcel Logic](https://archicoder.com), a constraint-to-form lab for computational massing.
 
+**V01 — complete.** One real parcel (Merdivenköy 3412/3, Kadıköy) taken from cadastral fact to 126 judged massing candidates, rules encoded as tested code, every mistake on the record. Browse them in the [Design Explorer](https://wmgarchitect.github.io/parcel-logic/explorer/). Full build log at [archicoder.com](https://archicoder.com).
+
 ![Coverage slider sweeping fat-slab to slim-tower with live compliance](docs/coverage-sweep.gif)
 
 ## The idea

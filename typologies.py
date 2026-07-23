@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
-"""typologies.py — a vocabulary of massing arrangements (polish phase).
+"""typologies.py — a vocabulary of massing arrangements.
+
+STATUS: EXPERIMENTAL / V02 preview. Not part of the shipped V01 result
+(the 126-candidate grid explorer). Five arrangement families generate
+and self-judge, but the parametric footprints still need an in-polygon
+fit pass and the `terraced` family overshoots KAKS. Kept public for
+transparency; V02 finishes and folds it into the explorer.
+
+A vocabulary of massing arrangements (polish phase).
 
 Session 6-10 gave the rules a design SPACE that was only three shapes:
 one slab, twin slabs, podium+two-towers. A real feasibility study speaks
